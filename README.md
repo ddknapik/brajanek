@@ -4,6 +4,7 @@ Statyczna strona: jeden plik `index.html` (CSS + JS w środku, bez zdjęć, pixe
 Live: https://ddknapik.github.io/brajanek/ (GitHub Pages, gałąź `main`, katalog `/`, repo `ddknapik/brajanek`; dawniej `brian-hq`).
 
 ## Edycja
+- Język: domyślnie PL; przełącznik PL/EN (zapis w localStorage `brajanek-lang`, link `?lang=en`). Teksty EN w obiekcie `EN` w skrypcie (klucze = atrybuty `data-i18n` / `data-i18n-aria`), teksty karty „Co teraz?” w polach `en`/`den` tablicy `B`.
 - Treść sekcji: HTML w `index.html` (`#plan`, `#jedzenie`, `#wyprawka`, `#komendy`).
 - Karta „Co teraz?”: tablica `B` w skrypcie (start w minutach od północy, czas Europe/Warsaw), `MEALS`, `POOS`, `STEP_OF` (który punkt planu podświetlić).
 - Pixel Brian: `BODY`, `LEG`, `POS` (4 klatki chodu); ikony: `ICONS`; kolory: `PAL`.

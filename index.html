@@ -115,10 +115,21 @@ ol.items li::before{content:counter(k);position:absolute;left:2px;top:12px;width
 footer{position:relative;z-index:1;text-align:center;font-size:14px;color:var(--ink2);padding:6px 14px 20px}
 .counter{display:inline-flex;gap:2px;margin:6px 0}
 .counter span{font:12px/1 var(--pix);background:var(--ink);color:#7dff9a;padding:6px 5px}
+/* language switch */
+.lang{display:inline-flex;flex:none;box-shadow:0 0 0 3px var(--ink);margin-right:6px}
+.lang button{font:11px/1 var(--pix);min-width:46px;height:34px;padding:0 8px;border:0;background:var(--cream);color:var(--ink);cursor:pointer}
+.lang button+button{border-left:3px solid var(--ink)}
+.lang button[aria-pressed="true"]{background:var(--yel)}
+.lang button:focus-visible,nav.qn .nl:focus-visible{outline:3px dashed var(--ink2);outline-offset:3px}
+.say{font-style:normal;font-weight:800;color:var(--ink);display:block}
+.tr{font-family:var(--body);font-size:14px;font-weight:700;color:var(--ink2)}
+nav.qn .nl{flex:0 0 60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;height:var(--navh);border:0;background:var(--lav);color:var(--ink);cursor:pointer;padding:0}
+nav.qn .nl .pix{font-size:13px}nav.qn .nl small{font:700 12px/1 var(--body)}
+nav.qn .nl:active{background:var(--pink)}
 /* nav */
 nav.qn{position:fixed;z-index:20;left:0;right:0;bottom:0;display:flex;background:var(--cream);border-top:var(--px) solid var(--ink);padding-bottom:env(safe-area-inset-bottom)}
-nav.qn a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;height:var(--navh);color:var(--ink);text-decoration:none;font:10px/1 var(--pix);border-right:3px solid var(--ink)}
-nav.qn a:last-child{border-right:0}
+nav.qn a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;height:var(--navh);color:var(--ink);text-decoration:none;font:clamp(8px,2.35vw,10px)/1 var(--pix);min-width:0;border-right:3px solid var(--ink)}
+
 nav.qn a img,nav.qn a svg{width:26px;height:auto}
 nav.qn a.on{background:var(--yel)}
 nav.qn a:active{background:var(--pink)}
@@ -131,7 +142,7 @@ nav.qn a:active{background:var(--pink)}
 @media (min-width:640px){body{font-size:20px}.grid3{grid-template-columns:1fr 1fr 1fr}h2{font-size:19px}.hero h1{font-size:40px}.stage{height:210px}.stage .dog{width:210px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.stage .heart{animation:none}#walker{display:none}}
 @media print{
-  #sky,#walker,nav.qn,.stage,.counter,.bar i{display:none!important}
+  #sky,#walker,nav.qn,.stage,.counter,.bar i,.lang{display:none!important}
   body{background:#fff;padding:0;font-size:12pt}
   .box{box-shadow:none;border:2px solid #000;margin:8px 0;break-inside:avoid}
   .js .rv{opacity:1;transform:none}
@@ -145,130 +156,132 @@ nav.qn a:active{background:var(--pink)}
 
 <main>
   <section class="box hero" id="top">
-    <div class="bar"><span class="t">♥ BRAJANEK.EXE</span><i>_</i><i>□</i><i>×</i></div>
+    <div class="bar"><span class="t">♥ BRAJANEK.EXE</span><span class="lang" role="group" data-i18n-aria="langGroup" aria-label="Język"><button type="button" data-lang="pl" aria-pressed="true">PL</button><button type="button" data-lang="en" aria-pressed="false">EN</button></span><i>×</i></div>
     <div class="in">
       <h1>BRIAN</h1>
-      <p class="sub">spaniel bretoński · ur. 11.06.2026</p>
+      <p class="sub" data-i18n="sub">spaniel bretoński · ur. 11.06.2026</p>
       <div class="stage"><div class="grass"></div><div class="sprite dog" id="heroDog" data-f="0"></div></div>
     </div>
   </section>
 
   <section class="box now rv" id="teraz" aria-live="polite">
-    <div class="bar"><span class="t">★ CO TERAZ?</span><i>×</i></div>
+    <div class="bar"><span class="t" data-i18n="nowBar">★ CO TERAZ?</span><i>×</i></div>
     <div class="in">
       <span class="clock" id="clk">--:--</span>
-      <div class="lbl">TERAZ</div>
+      <div class="lbl" data-i18n="nowLbl">TERAZ</div>
       <p class="big" id="nowT">Plan dnia jest niżej ↓</p>
       <p class="note" id="nowD"></p>
       <p class="next" id="nextT"></p>
       <div class="chips" id="chips"></div>
-      <p class="note" style="margin-top:12px">Wszystkie godziny są <b>orientacyjne</b> – każdy dzień jest trochę inny.</p>
+      <p class="note" style="margin-top:12px" data-i18n="approx">Wszystkie godziny są <b>orientacyjne</b> – każdy dzień jest trochę inny.</p>
       <div class="tl" id="tl"></div>
       <div class="tl-x"><span style="left:0%">7</span><span style="left:26.7%">11</span><span style="left:60%">16</span><span style="left:86.7%">20</span><span style="left:100%">22</span></div>
-      <div class="legend"><span><i style="background:var(--yel2)"></i>siku/kupka</span><span><i style="background:var(--peach2)"></i>jedzenie</span><span><i style="background:var(--mint2)"></i>spacer</span><span><i style="background:var(--lav2)"></i>spanko</span></div>
+      <div class="legend"><span><i style="background:var(--yel2)"></i><span data-i18n="lg1">siku/kupka</span></span><span><i style="background:var(--peach2)"></i><span data-i18n="lg2">jedzenie</span></span><span><i style="background:var(--mint2)"></i><span data-i18n="lg3">spacer</span></span><span><i style="background:var(--lav2)"></i><span data-i18n="lg4">spanko</span></span></div>
     </div>
   </section>
 
   <section class="box plan rv" id="plan">
-    <div class="bar"><span class="t">PLAN_DNIA.TXT</span><i>×</i></div>
+    <div class="bar"><span class="t" data-i18n="planBar">PLAN_DNIA.TXT</span><i>×</i></div>
     <div class="in">
-      <h2><span data-icon="clock" class="ico"></span>Plan dnia</h2>
+      <h2><span data-icon="clock" class="ico"></span><span data-i18n="planH">Plan dnia</span></h2>
       <ol class="steps" id="steps">
-        <li data-b="0"><span class="h">ok. 7:00</span><div>Pobudka → siku i kupka → śniadanie → zabawa.<small>Jak wstanie za wcześnie: po toalecie idzie jeszcze na małą drzemkę i wtedy je koło 8.</small></div></li>
-        <li data-b="1"><span class="h">do 10/11</span><div>Zazwyczaj śpi.</div></li>
-        <li data-b="2"><span class="h">ok. 10–11</span><div>Siku (czasem kupka) → zabawa → jedzenie → spanko.</div></li>
-        <li data-b="3"><span class="h">w ciągu dnia</span><div>Krótkie przerwy na siku.</div></li>
-        <li data-b="4"><span class="h">ok. 16–17</span><div>Siku (czasem kupka) → trzeci posiłek.</div></li>
-        <li data-b="5"><span class="h">po 17</span><div>Spacer 30–60 min.</div></li>
-        <li data-b="6"><span class="h">ok. 18</span><div>Spanko.</div></li>
-        <li data-b="7"><span class="h">ok. 20</span><div>Siku, czasem kupka → czwarty posiłek → spanko.</div></li>
-        <li data-b="8"><span class="h">wieczorem</span><div>„Zoomies” – biega bez ładu i składu.<small>Można się trochę pobawić, ale trzeba go „zmusić” do spania.</small></div></li>
-        <li data-b="9"><span class="h">ok. 22</span><div>Ostatnie siku i najlepiej kupka → spanie nocne.</div></li>
+        <li data-b="0"><span class="h" data-i18n="sh0">ok. 7:00</span><div data-i18n="sd0">Pobudka → siku i kupka → śniadanie → zabawa.<small>Jak wstanie za wcześnie: po toalecie idzie jeszcze na małą drzemkę i wtedy je koło 8.</small></div></li>
+        <li data-b="1"><span class="h" data-i18n="sh1">do 10/11</span><div data-i18n="sd1">Zazwyczaj śpi.</div></li>
+        <li data-b="2"><span class="h" data-i18n="sh2">ok. 10–11</span><div data-i18n="sd2">Siku (czasem kupka) → zabawa → jedzenie → spanko.</div></li>
+        <li data-b="3"><span class="h" data-i18n="sh3">w ciągu dnia</span><div data-i18n="sd3">Krótkie przerwy na siku.</div></li>
+        <li data-b="4"><span class="h" data-i18n="sh4">ok. 16–17</span><div data-i18n="sd4">Siku (czasem kupka) → trzeci posiłek.</div></li>
+        <li data-b="5"><span class="h" data-i18n="sh5">po 17</span><div data-i18n="sd5">Spacer 30–60 min.</div></li>
+        <li data-b="6"><span class="h" data-i18n="sh6">ok. 18</span><div data-i18n="sd6">Spanko.</div></li>
+        <li data-b="7"><span class="h" data-i18n="sh7">ok. 20</span><div data-i18n="sd7">Siku, czasem kupka → czwarty posiłek → spanko.</div></li>
+        <li data-b="8"><span class="h" data-i18n="sh8">wieczorem</span><div data-i18n="sd8">„Zoomies” – biega bez ładu i składu.<small>Można się trochę pobawić, ale trzeba go „zmusić” do spania.</small></div></li>
+        <li data-b="9"><span class="h" data-i18n="sh9">ok. 22</span><div data-i18n="sd9">Ostatnie siku i najlepiej kupka → spanie nocne.</div></li>
       </ol>
-      <h3>★ ŚCIĄGA</h3>
+      <h3 data-i18n="cheat">★ ŚCIĄGA</h3>
       <div class="grid3">
-        <div class="mini"><span class="pix">POSIŁKI</span><b class="v">8 · 11 · 16 · 20</b></div>
-        <div class="mini"><span class="pix">SIKU</span><b class="v">po każdej drzemce 60 min+</b></div>
-        <div class="mini"><span class="pix">KUPKA ~3× DZ.</span><b class="v">7 · 10* · 13 · 18* · 22</b><br><small class="note">7 i 13 to prawie pewniaczek · * = czasem</small></div>
+        <div class="mini"><span class="pix" data-i18n="mMeals">POSIŁKI</span><b class="v">8 · 11 · 16 · 20</b></div>
+        <div class="mini"><span class="pix" data-i18n="mPee">SIKU</span><b class="v" data-i18n="mPeeV">po każdej drzemce 60 min+</b></div>
+        <div class="mini"><span class="pix" data-i18n="mPoo">KUPKA ~3× DZ.</span><b class="v">7 · 10* · 13 · 18* · 22</b><br><small class="note" data-i18n="mPooN">7 i 13 to prawie pewniaczek · * = czasem</small></div>
       </div>
     </div>
   </section>
 
   <section class="box food rv" id="jedzenie">
-    <div class="bar"><span class="t">JEDZENIE.EXE</span><i>×</i></div>
+    <div class="bar"><span class="t" data-i18n="foodBar">JEDZENIE.EXE</span><i>×</i></div>
     <div class="in">
-      <h2><span data-icon="bowl" class="ico"></span>Jedzenie</h2>
-      <div class="stat"><span class="num">175 g</span><span>dziennie łącznie<br><b>= 90% łyżki z zestawu</b></span></div>
-      <p>Podzielone na <b>4 posiłki</b>:</p>
+      <h2><span data-icon="bowl" class="ico"></span><span data-i18n="foodH">Jedzenie</span></h2>
+      <div class="stat"><span class="num">175 g</span><span data-i18n="foodS">dziennie łącznie<br><b>= 90% łyżki z zestawu</b></span></div>
+      <p data-i18n="foodM">Podzielone na <b>4 posiłki</b>:</p>
       <div class="meals"><span>8:00</span><span>11:00</span><span>16:00</span><span>20:00</span></div>
     </div>
   </section>
 
   <section class="box kit rv" id="wyprawka">
-    <div class="bar"><span class="t">WYPRAWKA/</span><i>×</i></div>
+    <div class="bar"><span class="t" data-i18n="kitBar">WYPRAWKA/</span><i>×</i></div>
     <div class="in">
-      <h2><span data-icon="bone" class="ico"></span>Wyprawka</h2>
-      <p class="note">Co jest w zestawie:</p>
+      <h2><span data-icon="bone" class="ico"></span><span data-i18n="kitH">Wyprawka</span></h2>
+      <p class="note" data-i18n="kitIntro">Co jest w zestawie:</p>
       <ol class="items">
-        <li><b>Mata do lizania</b> – porcję jedzenia namocz 15 min w ciepłej wodzie i rozłóż na macie. Je wtedy ok. 10 min.</li>
-        <li><b>Worki na kupę</b> – zapas.</li>
-        <li><b>Kong + tubka z tuńczykiem</b> – pół tubki do środka.</li>
-        <li><b>Smaczki</b> – zapas na ok. 3 dni. <b>Maks. 20 dziennie.</b> W nagrodę za komendy lub kupę na dworze.</li>
-        <li><b>Zabawki do żucia</b> – różową bardzo lubi.</li>
-        <li><b>Zabawki do rzucania i memłania.</b></li>
-        <li><b>Rzecz nr 7 z zestawu – gryzak „na spotkania”.</b> Jak masz spotkanie, a Brian nie śpi i przeszkadza, daj mu go na <b>30 min, maksymalnie 45 min</b>.
+        <li data-i18n="it0"><b>Mata do lizania</b> – porcję jedzenia namocz 15 min w ciepłej wodzie i rozłóż na macie. Je wtedy ok. 10 min.</li>
+        <li data-i18n="it1"><b>Worki na kupę</b> – zapas.</li>
+        <li data-i18n="it2"><b>Kong + tubka z tuńczykiem</b> – pół tubki do środka.</li>
+        <li data-i18n="it3"><b>Smaczki</b> – zapas na ok. 3 dni. <b>Maks. 20 dziennie.</b> W nagrodę za komendy lub kupę na dworze.</li>
+        <li data-i18n="it4"><b>Zabawki do żucia</b> – różową bardzo lubi.</li>
+        <li data-i18n="it5"><b>Zabawki do rzucania i memłania.</b></li>
+        <li data-i18n="it6"><b>Rzecz nr 7 z zestawu – gryzak „na spotkania”.</b> Jak masz spotkanie, a Brian nie śpi i przeszkadza, daj mu go na <b>30 min, maksymalnie 45 min</b>.
           <div class="warn">⚠ Nie będzie chciał oddać. Możesz spróbować przehandlować go za coś, ale trudno mu go zabrać.</div></li>
       </ol>
     </div>
   </section>
 
   <section class="box cmd rv" id="komendy">
-    <div class="bar"><span class="t">KOMENDY.TXT</span><i>×</i></div>
+    <div class="bar"><span class="t" data-i18n="cmdBar">KOMENDY.TXT</span><i>×</i></div>
     <div class="in">
-      <h2><span data-icon="ball" class="ico"></span>Komendy</h2>
-      <p class="note">Na co reaguje:</p>
+      <h2><span data-icon="ball" class="ico"></span><span data-i18n="cmdH">Komendy</span></h2>
+      <p class="note" data-i18n="cmdIntro">Na co reaguje:</p>
       <div class="cues">
-        <div class="cue"><span class="w">siad</span><small>reaguje</small></div>
-        <div class="cue"><span class="w">chodź</span><small>reaguje</small></div>
-        <div class="cue"><span class="w">leż / leżeć</span><small>reaguje</small></div>
-        <div class="cue"><span class="w">zostań</span><small>czasem</small></div>
-        <div class="cue"><span class="w">zostaw</span><small>czasem</small></div>
-        <div class="cue sp"><span class="w">super</span><small>pochwała – wesoło + smaczek</small></div>
-        <div class="cue ok"><span class="w">okej</span><small>komenda zwalniająca</small></div>
+        <div class="cue"><span class="w">siad</span><small data-i18n="cu0">reaguje</small></div>
+        <div class="cue"><span class="w">chodź</span><small data-i18n="cu1">reaguje</small></div>
+        <div class="cue"><span class="w">leż / leżeć</span><small data-i18n="cu2">reaguje</small></div>
+        <div class="cue"><span class="w">zostań</span><small data-i18n="cu3">czasem</small></div>
+        <div class="cue"><span class="w">zostaw</span><small data-i18n="cu4">czasem</small></div>
+        <div class="cue sp"><span class="w">super</span><small data-i18n="cu5">pochwała – wesoło + smaczek</small></div>
+        <div class="cue ok"><span class="w">okej</span><small data-i18n="cu6">komenda zwalniająca</small></div>
       </div>
-      <h3>♥ ĆWICZENIE 1</h3>
-      <div class="ex"><span class="pix">siad · leżeć · zostań</span>
-        <ol><li>Odchodzisz kilka kroków, wracasz i rzucasz smaczek, mówiąc <span class="q">okej</span>.</li>
-        <li>Po każdym udanym kroku mówisz wesoło <span class="q">super</span> i dajesz smaczka.</li>
-        <li><b>Wersja oszczędna:</b> smaczek dopiero za leżenie i zostanie.</li></ol></div>
-      <h3>♥ ĆWICZENIE 2</h3>
-      <div class="ex"><span class="pix">siad · leżeć · zostaw</span>
-        <ol><li>Kładziesz kilka smaczków (lub kawałków karmy) na podłodze przed nim.</li>
-        <li>Mówisz <span class="q">zostaw</span> i dajesz po jednym, mówiąc <span class="q">super</span>.</li>
-        <li>Gdy dobrze idzie, możesz wstać i odejść kilka kroków.</li>
-        <li>Ostatni smaczek rzucasz obok niego, mówiąc <span class="q">okej</span>.</li></ol>
-        <p class="note">Ta zabawa bardzo go uspokaja.</p></div>
+      <h3 data-i18n="ex1H">♥ ĆWICZENIE 1</h3>
+      <div class="ex"><span class="pix" data-i18n="ex1S">siad · leżeć · zostań</span>
+        <ol><li data-i18n="ex0">Odchodzisz kilka kroków, wracasz i rzucasz smaczek, mówiąc <span class="q">okej</span>.</li>
+        <li data-i18n="ex1">Po każdym udanym kroku mówisz wesoło <span class="q">super</span> i dajesz smaczka.</li>
+        <li data-i18n="ex2"><b>Wersja oszczędna:</b> smaczek dopiero za leżenie i zostanie.</li></ol></div>
+      <h3 data-i18n="ex2H">♥ ĆWICZENIE 2</h3>
+      <div class="ex"><span class="pix" data-i18n="ex2S">siad · leżeć · zostaw</span>
+        <ol><li data-i18n="ex3">Kładziesz kilka smaczków (lub kawałków karmy) na podłodze przed nim.</li>
+        <li data-i18n="ex4">Mówisz <span class="q">zostaw</span> i dajesz po jednym, mówiąc <span class="q">super</span>.</li>
+        <li data-i18n="ex5">Gdy dobrze idzie, możesz wstać i odejść kilka kroków.</li>
+        <li data-i18n="ex6">Ostatni smaczek rzucasz obok niego, mówiąc <span class="q">okej</span>.</li></ol>
+        <p class="note" data-i18n="exCalm">Ta zabawa bardzo go uspokaja.</p></div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div>Licznik odwiedzin</div>
-  <div class="counter" aria-label="licznik odwiedzin – żart"><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>1</span></div>
-  <div>(to Ty! ♥) · strona przyjazna psom · najlepiej oglądać z psem na kolanach</div>
+  <div data-i18n="fCount">Licznik odwiedzin</div>
+  <div class="counter" data-i18n-aria="fAria" aria-label="licznik odwiedzin – żart"><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>1</span></div>
+  <div data-i18n="fJoke">(to Ty! ♥) · strona przyjazna psom · najlepiej oglądać z psem na kolanach</div>
 </footer>
 
-<nav class="qn" aria-label="Szybka nawigacja">
-  <a href="#plan" data-sec="plan"><span data-icon="clock"></span>Plan dnia</a>
-  <a href="#jedzenie" data-sec="jedzenie"><span data-icon="bowl"></span>Jedzenie</a>
-  <a href="#wyprawka" data-sec="wyprawka"><span data-icon="bone"></span>Wyprawka</a>
-  <a href="#komendy" data-sec="komendy"><span data-icon="ball"></span>Komendy</a>
+<nav class="qn" data-i18n-aria="navAria" aria-label="Szybka nawigacja">
+  <a href="#plan" data-sec="plan"><span data-icon="clock"></span><span data-i18n="nav_plan">Plan dnia</span></a>
+  <a href="#jedzenie" data-sec="jedzenie"><span data-icon="bowl"></span><span data-i18n="nav_jedzenie">Jedzenie</span></a>
+  <a href="#wyprawka" data-sec="wyprawka"><span data-icon="bone"></span><span data-i18n="nav_wyprawka">Wyprawka</span></a>
+  <a href="#komendy" data-sec="komendy"><span data-icon="ball"></span><span data-i18n="nav_komendy">Komendy</span></a>
+  <button type="button" class="nl" data-toggle-lang aria-label="Zmień język / Change language"><span class="pix" data-i18n="navLang">EN</span><small data-i18n="navLang2">English</small></button>
 </nav>
 
 <div id="walker" aria-hidden="true"><div class="sprite" data-f="0"></div></div>
 
 <script>
 /* ---------- pixel renderer ---------- */
+let LANG="pl";
 const PAL={K:"#3b2416",O:"#e07a2e",D:"#b4561f",W:"#fff8ef",G:"#ecdcc8",N:"#5a2a22",E:"#241208",F:"#e9914a",
   P:"#8ec5ff",R:"#ff6f9c",Y:"#ffd23f",S:"#ffffff",C:"#c7f0ff",B:"#a98cf0",M:"#7fcf98",Q:"#ff9f5a"};
 function svg(grid,cls){let r="";const w=grid[0].length;
@@ -350,21 +363,21 @@ if("IntersectionObserver" in window){const so=new IntersectionObserver(es=>{es.f
 /* ---------- Co teraz? ---------- */
 // t = start in minutes (approximate), k = timeline colour
 const B=[
- {t:420,txt:"Pobudka: siku i kupka → śniadanie → zabawa",d:"Jak wstał za wcześnie: po toalecie mała drzemka, śniadanie koło 8.",k:"wc"},
- {t:510,txt:"Drzemka – zazwyczaj śpi do 10/11",d:"Po drzemce 60 min+ od razu siku.",k:"sleep"},
- {t:630,txt:"Siku (czasem kupka) → zabawa → jedzenie → spanko",d:"Drugi posiłek ok. 11.",k:"food"},
- {t:720,txt:"Drzemki i krótkie przerwy na siku",d:"Kupka ok. 13 to prawie pewniaczek.",k:"sleep"},
- {t:960,txt:"Siku (czasem kupka) → trzeci posiłek",d:"Godz. ok. 16–17.",k:"food"},
- {t:1020,txt:"Spacer 30–60 min",d:"Po 17.",k:"walk"},
- {t:1080,txt:"Spanko",d:"Kupka ok. 18 – czasem.",k:"sleep"},
- {t:1200,txt:"Siku, czasem kupka → czwarty posiłek → spanko",d:"Wieczorem „zoomies” – można się trochę pobawić, ale trzeba go „zmusić” do spania.",k:"food"},
- {t:1320,txt:"Ostatnie siku i najlepiej kupka → noc",d:"Potem spanie nocne.",k:"wc"},
- {t:1350,txt:"Noc – śpi",d:"Pobudka zwykle ok. 7:00.",k:"sleep"},
+ {t:420,txt:"Pobudka: siku i kupka → śniadanie → zabawa",d:"Jak wstał za wcześnie: po toalecie mała drzemka, śniadanie koło 8.",en:"Wake-up: pee and poop → breakfast → play",den:"If he woke too early: after the toilet a short nap, breakfast around 8.",k:"wc"},
+ {t:510,txt:"Drzemka – zazwyczaj śpi do 10/11",d:"Po drzemce 60 min+ od razu siku.",en:"Nap – usually sleeps until 10/11",den:"After a nap of 60 min+, straight out for a pee.",k:"sleep"},
+ {t:630,txt:"Siku (czasem kupka) → zabawa → jedzenie → spanko",d:"Drugi posiłek ok. 11.",en:"Pee (sometimes poop) → play → food → sleep",den:"Second meal around 11.",k:"food"},
+ {t:720,txt:"Drzemki i krótkie przerwy na siku",d:"Kupka ok. 13 to prawie pewniaczek.",en:"Naps and short pee breaks",den:"A poop around 13 is almost a sure thing.",k:"sleep"},
+ {t:960,txt:"Siku (czasem kupka) → trzeci posiłek",d:"Godz. ok. 16–17.",en:"Pee (sometimes poop) → third meal",den:"Around 16–17.",k:"food"},
+ {t:1020,txt:"Spacer 30–60 min",d:"Po 17.",en:"Walk, 30–60 min",den:"After 17.",k:"walk"},
+ {t:1080,txt:"Spanko",d:"Kupka ok. 18 – czasem.",en:"Sleep",den:"Sometimes a poop around 18.",k:"sleep"},
+ {t:1200,txt:"Siku, czasem kupka → czwarty posiłek → spanko",d:"Wieczorem „zoomies” – można się trochę pobawić, ale trzeba go „zmusić” do spania.",en:"Pee, sometimes poop → fourth meal → sleep",den:"Evening “zoomies” – you can play a little, but then you have to “make” him sleep.",k:"food"},
+ {t:1320,txt:"Ostatnie siku i najlepiej kupka → noc",d:"Potem spanie nocne.",en:"Last pee and ideally a poop → night",den:"Then night-time sleep.",k:"wc"},
+ {t:1350,txt:"Noc – śpi",d:"Pobudka zwykle ok. 7:00.",en:"Night – sleeping",den:"Usually wakes up around 7:00.",k:"sleep"},
 ];
 const STEP_OF=[0,1,2,3,4,5,6,7,9,9]; // block -> plan list item
 const MEALS=[480,660,960,1200], POOS=[[420,""],[600,"*"],[780,""],[1080,"*"],[1320,""]];
 const fmt=m=>{m=((m%1440)+1440)%1440;return Math.floor(m/60)+":"+String(m%60).padStart(2,"0");};
-const inMin=d=>{if(d<60)return `za ok. ${d} min`;const h=Math.floor(d/60),r=d%60;return `za ok. ${h} h${r?` ${r} min`:""}`;};
+const inMin=d=>{const en=LANG==="en",p=en?"in about":"za ok.";if(d<60)return `${p} ${d} min`;const h=Math.floor(d/60),r=d%60;return `${p} ${h} h${r?` ${r} min`:""}`;};
 function nowMin(){try{const p=new Intl.DateTimeFormat("pl-PL",{timeZone:"Europe/Warsaw",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());const g=t=>+p.find(x=>x.type===t).value;return g("hour")*60+g("minute");}catch(e){const d=new Date();return d.getHours()*60+d.getMinutes();}}
 const tl=document.getElementById("tl"),T0=420,T1=1320,pct=m=>Math.min(100,Math.max(0,(m-T0)/(T1-T0)*100));
 B.forEach((b,i)=>{if(b.t>=T1)return;const e=document.createElement("span");e.className="k-"+b.k;const end=Math.min(T1,B[i+1]?B[i+1].t:T1);e.style.left=pct(b.t)+"%";e.style.width=(pct(end)-pct(b.t))+"%";tl.appendChild(e);});
@@ -375,13 +388,117 @@ function nextAfter(list,m){for(const x of list){const t=Array.isArray(x)?x[0]:x;
 function upd(){const m=nowMin();document.getElementById("clk").textContent=fmt(m);
   let i=B.length-1;for(let j=0;j<B.length;j++)if(m>=B[j].t)i=j; if(m<B[0].t)i=B.length-1;
   const n=(i+1)%B.length,b=B[i],nb=B[n];const dn=((nb.t-m)+1440)%1440;
-  document.getElementById("nowT").textContent=b.txt;document.getElementById("nowD").textContent=b.d;
-  document.getElementById("nextT").innerHTML=`Następne: <b>ok. ${fmt(nb.t)}</b> – ${nb.txt} <span class="note">(${inMin(dn)})</span>`;
+  const E=LANG==="en";document.getElementById("nowT").textContent=E?b.en:b.txt;document.getElementById("nowD").textContent=E?b.den:b.d;
+  document.getElementById("nextT").innerHTML=`${E?"Next":"Następne"}: <b>${E?"about":"ok."} ${fmt(nb.t)}</b> – ${E?nb.en:nb.txt} <span class="note">(${inMin(dn)})</span>`;
   const meal=nextAfter(MEALS,m),poo=nextAfter(POOS,m);
-  document.getElementById("chips").innerHTML=`<span class="chip p">${IC.bowl} posiłek: ok. ${fmt(meal)}</span><span class="chip">${IC.paw} kupka: zwykle ok. ${fmt(poo[0])}${poo[1]?" (czasem)":""}</span><span class="chip s">${IC.star} siku po każdej drzemce 60 min+</span>`;
+  document.getElementById("chips").innerHTML=E?`<span class="chip p">${IC.bowl} meal: about ${fmt(meal)}</span><span class="chip">${IC.paw} poop: usually about ${fmt(poo[0])}${poo[1]?" (sometimes)":""}</span><span class="chip s">${IC.star} pee after every nap of 60 min+</span>`:`<span class="chip p">${IC.bowl} posiłek: ok. ${fmt(meal)}</span><span class="chip">${IC.paw} kupka: zwykle ok. ${fmt(poo[0])}${poo[1]?" (czasem)":""}</span><span class="chip s">${IC.star} siku po każdej drzemce 60 min+</span>`;
   me.style.left=pct(m)+"%";me.style.display=(m<T0||m>T1)?"none":"";
   steps.forEach((s,k)=>s.classList.toggle("cur",k===STEP_OF[i]));}
-upd();setInterval(upd,30000);
+setInterval(upd,30000);
+
+/* ---------- PL / EN ---------- */
+const EN={
+"langGroup": "Language",
+"sub": "Brittany spaniel · born 11 June 2026",
+"nowBar": "★ WHAT NOW?",
+"nowLbl": "NOW",
+"approx": "All times are <b>approximate</b> – every day is a little different.",
+"lg1": "pee/poop",
+"lg2": "food",
+"lg3": "walk",
+"lg4": "sleep",
+"planBar": "DAILY_PLAN.TXT",
+"planH": "Daily plan",
+"sh0": "about 7:00",
+"sd0": "Wake-up → pee and poop → breakfast → play.<small>If he wakes up too early: after the toilet he goes back for a short nap and then eats around 8.</small>",
+"sh1": "until 10/11",
+"sd1": "Usually sleeps.",
+"sh2": "about 10–11",
+"sd2": "Pee (sometimes poop) → play → food → sleep.",
+"sh3": "during the day",
+"sd3": "Short pee breaks.",
+"sh4": "about 16–17",
+"sd4": "Pee (sometimes poop) → third meal.",
+"sh5": "after 17",
+"sd5": "Walk, 30–60 min.",
+"sh6": "about 18",
+"sd6": "Sleep.",
+"sh7": "about 20",
+"sd7": "Pee, sometimes poop → fourth meal → sleep.",
+"sh8": "evening",
+"sd8": "“Zoomies” – he runs around like crazy.<small>You can play a little, but then you have to “make” him sleep.</small>",
+"sh9": "about 22",
+"sd9": "Last pee and ideally a poop → night-time sleep.",
+"cheat": "★ CHEAT SHEET",
+"mMeals": "MEALS",
+"mPee": "PEE",
+"mPeeV": "after every nap of 60 min+",
+"mPoo": "POOP ~3×/DAY",
+"mPooN": "7 and 13 are almost a sure thing · * = sometimes",
+"foodBar": "FOOD.EXE",
+"foodH": "Food",
+"foodS": "per day in total<br><b>= 90% of the scoop from the kit</b>",
+"foodM": "Split into <b>4 meals</b>:",
+"kitBar": "KIT/",
+"kitH": "Kit",
+"kitIntro": "What's in the kit:",
+"it0": "<b>Lick mat</b> – soak a portion of food in warm water for 15 min and spread it on the mat. He then eats for about 10 min.",
+"it1": "<b>Poop bags</b> – a spare supply.",
+"it2": "<b>Kong + tube of tuna</b> – half a tube goes inside.",
+"it3": "<b>Treats</b> – enough for about 3 days. <b>Max. 20 a day.</b> As a reward for commands or for pooping outside.",
+"it4": "<b>Chew toys</b> – he really loves the pink one.",
+"it5": "<b>Toys for throwing and mouthing.</b>",
+"it6": "<b>Item no. 7 from the kit – the “meeting” chew.</b> If you have a meeting and Brian is awake and bothering you, give it to him for <b>30 min, 45 min at most</b>.\n          <div class=\"warn\">⚠ He won’t want to give it back. You can try trading it for something, but it’s hard to take it away from him.</div>",
+"cmdBar": "COMMANDS.TXT",
+"cmdH": "Commands",
+"cmdIntro": "He responds to these <b>Polish</b> words – say them in Polish:",
+"cu0": "<i class=\"say\">“shahd”</i> sit · responds",
+"cu1": "<i class=\"say\">“hotch”</i> come · responds",
+"cu2": "<i class=\"say\">“lesh / LEH-zhetch”</i> lie down · responds",
+"cu3": "<i class=\"say\">“ZOS-tahn”</i> stay · sometimes",
+"cu4": "<i class=\"say\">“ZOS-tahf”</i> leave it · sometimes",
+"cu5": "<i class=\"say\">“SOO-per”</i> praise – say it cheerfully + treat",
+"cu6": "<i class=\"say\">“oh-KAY”</i> release word (“you’re free”)",
+"ex1H": "♥ EXERCISE 1",
+"ex1S": "siad · leżeć · zostań <span class=\"tr\">(sit · down · stay)</span>",
+"ex2H": "♥ EXERCISE 2",
+"ex2S": "siad · leżeć · zostaw <span class=\"tr\">(sit · down · leave it)</span>",
+"ex0": "Walk away a few steps, come back and toss him a treat, saying <span class=\"q\">okej</span>.",
+"ex1": "After every successful step, say <span class=\"q\">super</span> cheerfully and give him a treat.",
+"ex2": "<b>Thrifty version:</b> a treat only for lying down and staying.",
+"ex3": "Put a few treats (or pieces of kibble) on the floor in front of him.",
+"ex4": "Say <span class=\"q\">zostaw</span> and give them to him one at a time, saying <span class=\"q\">super</span>.",
+"ex5": "When it’s going well, you can stand up and walk a few steps away.",
+"ex6": "Toss the last treat next to him, saying <span class=\"q\">okej</span>.",
+"exCalm": "This game really calms him down.",
+"fCount": "Visitor counter",
+"fAria": "visitor counter – a joke",
+"fJoke": "(that’s you! ♥) · dog-friendly website · best viewed with a dog on your lap",
+"navAria": "Quick navigation",
+"nav_plan": "Plan",
+"nav_jedzenie": "Food",
+"nav_wyprawka": "Kit",
+"nav_komendy": "Commands",
+"navLang": "PL",
+"navLang2": "Polski"
+};
+const PLT={},PLA={};
+document.querySelectorAll("[data-i18n]").forEach(e=>PLT[e.dataset.i18n]=e.innerHTML);
+document.querySelectorAll("[data-i18n-aria]").forEach(e=>PLA[e.dataset.i18nAria]=e.getAttribute("aria-label"));
+function setLang(l,save){
+  LANG=l==="en"?"en":"pl";const en=LANG==="en";
+  document.documentElement.lang=LANG;
+  document.querySelectorAll("[data-i18n]").forEach(e=>{const k=e.dataset.i18n;const v=en?EN[k]:PLT[k];if(v!=null&&e.innerHTML!==v)e.innerHTML=v;});
+  document.querySelectorAll("[data-i18n-aria]").forEach(e=>{const k=e.dataset.i18nAria;e.setAttribute("aria-label",en?EN[k]:PLA[k]);});
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===LANG)));
+  if(save){try{localStorage.setItem("brajanek-lang",LANG);}catch(e){}
+    try{const u=new URL(location.href);if(en)u.searchParams.set("lang","en");else u.searchParams.delete("lang");history.replaceState(null,"",u);}catch(e){}}
+  upd();}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang,true)));
+document.querySelector("[data-toggle-lang]").addEventListener("click",()=>setLang(LANG==="en"?"pl":"en",true));
+(function(){let l=null;try{l=new URLSearchParams(location.search).get("lang");}catch(e){}
+  if(l!=="en"&&l!=="pl"){try{l=localStorage.getItem("brajanek-lang");}catch(e){}}
+  setLang(l==="en"?"en":"pl",false);})();
 </script>
 </body>
 </html>
