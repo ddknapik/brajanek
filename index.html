@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Brian – instrukcja opieki</title>
+<meta name="description" content="Instrukcja opieki nad Brianem, szczeniakiem spaniela bretońskiego.">
+<style>
+:root{--bg:#fbfaf7;--card:#fff;--ink:#1f2328;--muted:#5b616b;--accent:#c0562b;--accent2:#2f6f4f;--line:#e6e2da;--todo:#fff3a3;--todo-ink:#5a4a00;--danger:#b42318;--danger-bg:#fdecea}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:var(--accent);color:#fff;padding:20px 16px 16px}
+header h1{margin:0;font-size:1.6rem}
+header p{margin:4px 0 0;opacity:.92}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+nav a{display:inline-block;padding:10px 12px;color:var(--ink);text-decoration:none;font-size:.9rem}
+nav a:hover{color:var(--accent)}
+main{max-width:760px;margin:0 auto;padding:12px 14px 40px}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0;scroll-margin-top:52px}
+h2{margin:0 0 8px;font-size:1.25rem;color:var(--accent)}
+h3{margin:14px 0 6px;font-size:1.02rem}
+ul{padding-left:1.2em;margin:6px 0}
+li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:.95rem;margin:6px 0}
+th,td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{background:#f4f1ea}
+.todo{background:var(--todo);color:var(--todo-ink);padding:1px 5px;border-radius:4px;border:1px dashed #d4b800;font-style:italic}
+.emergency{border:2px solid var(--danger);background:var(--danger-bg)}
+.emergency h2{color:var(--danger)}
+.tel{display:block;padding:10px 12px;margin:6px 0;border-radius:10px;background:#fff;border:1px solid #f1c3bd}
+.tel b{display:block}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:8px 0}
+.facts div{background:#f6f3ec;border-radius:8px;padding:8px 10px}
+.facts small{display:block;color:var(--muted);font-size:.78rem}
+.badge{display:inline-block;font-size:.75rem;padding:1px 7px;border-radius:999px;background:#e8f1ec;color:var(--accent2);border:1px solid #c6dccf;vertical-align:middle}
+.cols{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:600px){.cols{grid-template-columns:1fr 1fr}}
+.do h3{color:var(--accent2)} .dont h3{color:var(--danger)}
+.note{color:var(--muted);font-size:.88rem}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 14px 30px}
+.print-btn{background:#fff;color:var(--accent);border:0;border-radius:8px;padding:6px 10px;font-weight:600;margin-top:10px;cursor:pointer}
+@media print{
+  nav,.print-btn{display:none}
+  body{background:#fff;font-size:11pt}
+  header{background:none;color:#000;padding:0 0 6px;border-bottom:2px solid #000}
+  section{border:1px solid #999;break-inside:avoid;page-break-inside:avoid;margin:8px 0;padding:8px 10px}
+  .emergency{background:none}
+  .todo{background:none;border:1px dashed #000;color:#000}
+  a{color:#000;text-decoration:none}
+  main{max-width:none;padding:0}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>🐾 Brian – instrukcja opieki</h1>
+  <p>Spaniel bretoński · szczeniak · ur. 11.06.2026</p>
+  <button class="print-btn" onclick="window.print()">🖨️ Drukuj</button>
+</header>
+
+<nav aria-label="Spis treści">
+  <a href="#nagle">🚨 Najważniejsze</a><a href="#plan">Plan dnia</a><a href="#karmienie">Karmienie</a><a href="#spacery">Spacery</a><a href="#komendy">Komendy</a><a href="#dom">Zasady w domu</a><a href="#zdrowie">Zdrowie</a><a href="#kontakty">Kontakty</a><a href="#zasady">Co robić / unikać</a>
+</nav>
+
+<main>
+
+<section id="nagle" class="emergency">
+  <h2>🚨 Najważniejsze / w nagłych wypadkach</h2>
+  <p><strong>W razie nagłego wypadku najpierw zadzwoń do weterynarza</strong>, a potem do Damiana.</p>
+  <a class="tel" href="#kontakty"><b>Weterynarz (stały)</b><span class="todo">[do uzupełnienia: nazwa kliniki, telefon]</span></a>
+  <a class="tel" href="#kontakty"><b>Całodobowa klinika (Kraków)</b><span class="todo">[do uzupełnienia: nazwa, adres, telefon]</span></a>
+  <a class="tel" href="#kontakty"><b>Damian</b><span class="todo">[do uzupełnienia: telefon]</span></a>
+  <h3>Szybkie fakty</h3>
+  <div class="facts">
+    <div><small>Imię</small>Brian</div>
+    <div><small>Rasa</small>Spaniel bretoński (Brittany)</div>
+    <div><small>Urodzony</small>11.06.2026 <span id="age"></span></div>
+    <div><small>Mieszka</small>Mieszkanie w Krakowie</div>
+    <div><small>Chip</small><span class="todo">[do uzupełnienia: nr chipa]</span></div>
+    <div><small>Alergie</small><span class="todo">[do uzupełnienia]</span></div>
+    <div><small>Leki</small><span class="todo">[do uzupełnienia]</span></div>
+    <div><small>Waga</small><span class="todo">[do uzupełnienia]</span></div>
+  </div>
+  <h3>Jeśli Brian ucieknie / zgubi się</h3>
+  <p><span class="todo">[do uzupełnienia: procedura – kogo zawiadomić, gdzie szukać]</span></p>
+  <p class="note">Lokalizator GPS Tractive – <span class="badge">planowane</span> (jeszcze go nie mamy).</p>
+</section>
+
+<section id="plan">
+  <h2>🕒 Plan dnia</h2>
+  <p class="note">Szczegółowy plan zostanie uzupełniony na podstawie zaleceń trenera.</p>
+  <table>
+    <thead><tr><th style="width:28%">Godzina</th><th>Co robimy</th></tr></thead>
+    <tbody>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td>Pobudka i wyjście na siku <span class="todo">[do potwierdzenia]</span></td></tr>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td>Posiłek <span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td>Spacer / trening <span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td>Drzemka / odpoczynek <span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td>Wieczorny spacer i sen <span class="todo">[do uzupełnienia]</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="karmienie">
+  <h2>🍖 Karmienie</h2>
+  <table>
+    <tbody>
+      <tr><th style="width:38%">Karma (marka, rodzaj)</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Ilość na posiłek</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Liczba posiłków / godziny</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Gdzie leży karma</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Smaczki treningowe</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Woda</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Czego nie dawać</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="spacery">
+  <h2>🦮 Spacery i smycz</h2>
+  <ul>
+    <li><strong>Obecnie:</strong> spacery na smyczy ok. 2 m.</li>
+    <li><strong>Linka treningowa ok. 10 m</strong> (na spacery po trawie) – <span class="badge">planowane</span></li>
+    <li><strong>Lokalizator GPS Tractive</strong> – <span class="badge">planowane</span></li>
+  </ul>
+  <table>
+    <tbody>
+      <tr><th style="width:38%">Ile spacerów dziennie / jak długo</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Szelki czy obroża</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Ulubione / dozwolone trasy</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Spuszczanie ze smyczy</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Inne psy i ludzie na spacerze</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Klucze, woreczki, gdzie co leży</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="komendy">
+  <h2>🎓 Komendy i trening</h2>
+  <p class="note">Używajmy wszyscy tych samych słów i gestów – to bardzo pomaga szczeniakowi. Lista zostanie uzupełniona na podstawie zaleceń trenera.</p>
+  <table>
+    <thead><tr><th>Komenda (słowo)</th><th>Co znaczy</th><th>Gest / jak nagradzać</th></tr></thead>
+    <tbody>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
+      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+  <h3>Nad czym teraz pracujemy</h3>
+  <p><span class="todo">[do uzupełnienia]</span></p>
+</section>
+
+<section id="dom">
+  <h2>🏠 Zasady w domu</h2>
+  <table>
+    <tbody>
+      <tr><th style="width:38%">Gdzie śpi</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Kanapa / łóżko</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Klatka / kojec</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Zostawanie samemu</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Zabawki i gryzaki</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Pomieszczenia niedostępne</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Wpadki z czystością</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="zdrowie">
+  <h2>🩺 Zdrowie i weterynarz</h2>
+  <table>
+    <tbody>
+      <tr><th style="width:38%">Weterynarz (klinika)</th><td><span class="todo">[do uzupełnienia: nazwa]</span></td></tr>
+      <tr><th>Adres</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Telefon</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Godziny otwarcia</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Całodobowa klinika</th><td><span class="todo">[do uzupełnienia: nazwa, adres, telefon]</span></td></tr>
+      <tr><th>Szczepienia</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Odrobaczanie / kleszcze i pchły</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Alergie</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Leki</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Numer chipa</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Książeczka zdrowia – gdzie leży</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Ubezpieczenie</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="kontakty">
+  <h2>📞 Kontakty alarmowe</h2>
+  <table>
+    <thead><tr><th>Kto</th><th>Telefon</th></tr></thead>
+    <tbody>
+      <tr><td>Damian</td><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><td>Żona Damiana <span class="todo">[do uzupełnienia: imię]</span></td><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><td>Kontakt zapasowy (rodzina) <span class="todo">[do uzupełnienia]</span></td><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><td>Weterynarz</td><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><td>Całodobowa klinika</td><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><td>Trener / behawiorysta</td><td><span class="todo">[do uzupełnienia, jeśli dotyczy]</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="zasady">
+  <h2>✅ Co robić / ❌ czego unikać</h2>
+  <div class="cols">
+    <div class="do"><h3>✅ Co robić</h3><ul><li><span class="todo">[do uzupełnienia]</span></li><li><span class="todo">[do uzupełnienia]</span></li><li><span class="todo">[do uzupełnienia]</span></li></ul></div>
+    <div class="dont"><h3>❌ Czego unikać</h3><ul><li><span class="todo">[do uzupełnienia]</span></li><li><span class="todo">[do uzupełnienia]</span></li><li><span class="todo">[do uzupełnienia]</span></li></ul></div>
+  </div>
+</section>
+
+</main>
+<footer>Wersja 1 · ostatnia aktualizacja: <span id="updated">21.10.2026</span> · Pola <span class="todo">[do uzupełnienia]</span> czekają na dane.</footer>
+<script>
+(function(){var b=new Date(2026,5,11),n=new Date(),m=(n.getFullYear()-b.getFullYear())*12+n.getMonth()-b.getMonth();if(n.getDate()<b.getDate())m--;if(m>=0){var e=document.getElementById('age');e.textContent='(ok. '+m+' mies.)';}})();
+</script>
+</body>
+</html>
