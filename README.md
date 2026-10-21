@@ -1,7 +1,7 @@
-# Brian – ściąga dla opiekuna
+# Brajanek.exe – ściąga dla opiekuna Briana
 
 Statyczna strona: jeden plik `index.html` (CSS + JS w środku, bez zdjęć, pixel-art rysowany w SVG przez JS).
-Live: https://ddknapik.github.io/brian-hq/ (GitHub Pages, gałąź `main`, katalog `/`, repo `ddknapik/brian-hq`).
+Live: https://ddknapik.github.io/brajanek/ (GitHub Pages, gałąź `main`, katalog `/`, repo `ddknapik/brajanek`; dawniej `brian-hq`).
 
 ## Edycja
 - Treść sekcji: HTML w `index.html` (`#plan`, `#jedzenie`, `#wyprawka`, `#komendy`).
