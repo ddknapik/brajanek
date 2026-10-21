@@ -29,7 +29,7 @@ th{background:#f4f1ea}
 .todo{background:var(--todo);color:var(--todo-ink);padding:1px 5px;border-radius:4px;border:1px dashed #d4b800;font-style:italic}
 .emergency{border:2px solid var(--danger);background:var(--danger-bg)}
 .emergency h2{color:var(--danger)}
-.tel{display:block;padding:10px 12px;margin:6px 0;border-radius:10px;background:#fff;border:1px solid #f1c3bd}
+.tel{display:block;color:var(--ink);text-decoration:none;padding:10px 12px;margin:6px 0;border-radius:10px;background:#fff;border:1px solid #f1c3bd}
 .tel b{display:block}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:8px 0}
 .facts div{background:#f6f3ec;border-radius:8px;padding:8px 10px}
@@ -51,6 +51,14 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 14px 3
   a{color:#000;text-decoration:none}
   main{max-width:none;padding:0}
 }
+.hero{display:block;width:100%;height:300px;object-fit:cover;object-position:50% 45%;border-radius:12px;margin:12px 0 0}
+figure{margin:10px 0}figure img{width:100%;max-width:360px;border-radius:10px;display:block}
+figcaption{color:var(--muted);font-size:.85rem;margin-top:4px}
+.cue{font-weight:700;color:var(--accent2)}
+ol{padding-left:1.3em}ol li{margin:6px 0}
+.tip{background:#eef6f1;border-left:4px solid var(--accent2);padding:8px 10px;border-radius:6px;margin:8px 0}
+.warn{background:#fff4ec;border-left:4px solid var(--accent);padding:8px 10px;border-radius:6px;margin:8px 0}
+@media print{.hero{max-height:8cm;width:auto}figure{display:none}.tip,.warn{background:none}}
 </style>
 </head>
 <body>
@@ -61,10 +69,11 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 14px 3
 </header>
 
 <nav aria-label="Spis treści">
-  <a href="#nagle">🚨 Najważniejsze</a><a href="#plan">Plan dnia</a><a href="#karmienie">Karmienie</a><a href="#spacery">Spacery</a><a href="#komendy">Komendy</a><a href="#dom">Zasady w domu</a><a href="#zdrowie">Zdrowie</a><a href="#kontakty">Kontakty</a><a href="#zasady">Co robić / unikać</a>
+  <a href="#nagle">🚨 Najważniejsze</a><a href="#plan">Plan dnia</a><a href="#karmienie">Karmienie</a><a href="#wyprawka">Wyprawka</a><a href="#spacery">Spacery</a><a href="#komendy">Komendy</a><a href="#dom">Zasady w domu</a><a href="#zdrowie">Zdrowie</a><a href="#kontakty">Kontakty</a><a href="#zasady">Co robić / unikać</a>
 </nav>
 
 <main>
+<img class="hero" src="img/brian-trawa.jpg" width="900" height="1200" alt="Brian siedzi na trawie w szelkach">
 
 <section id="nagle" class="emergency">
   <h2>🚨 Najważniejsze / w nagłych wypadkach</h2>
@@ -82,90 +91,141 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 14px 3
     <div><small>Alergie</small><span class="todo">[do uzupełnienia]</span></div>
     <div><small>Leki</small><span class="todo">[do uzupełnienia]</span></div>
     <div><small>Waga</small><span class="todo">[do uzupełnienia]</span></div>
+    <div><small>Jedzenie</small>175 g/dzień, 4 posiłki</div>
+    <div><small>Smaczki</small>maks. 20 dziennie</div>
   </div>
   <h3>Jeśli Brian ucieknie / zgubi się</h3>
   <p><span class="todo">[do uzupełnienia: procedura – kogo zawiadomić, gdzie szukać]</span></p>
+  <p class="note">Kuleje lub nie chce się ruszać → przerwij i dzwoń do weterynarza.</p>
   <p class="note">Lokalizator GPS Tractive – <span class="badge">planowane</span> (jeszcze go nie mamy).</p>
 </section>
 
 <section id="plan">
   <h2>🕒 Plan dnia</h2>
-  <p class="note">Szczegółowy plan zostanie uzupełniony na podstawie zaleceń trenera.</p>
+  <p class="note">Godziny są orientacyjne – każdy dzień jest trochę inny.</p>
   <table>
-    <thead><tr><th style="width:28%">Godzina</th><th>Co robimy</th></tr></thead>
+    <thead><tr><th style="width:24%">Kiedy</th><th>Co robimy</th></tr></thead>
     <tbody>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td>Pobudka i wyjście na siku <span class="todo">[do potwierdzenia]</span></td></tr>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td>Posiłek <span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td>Spacer / trening <span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td>Drzemka / odpoczynek <span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td>Wieczorny spacer i sen <span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><td>ok. 7:00</td><td>Pobudka → siku i kupka → śniadanie → zabawa. Czasem, jak wstanie za wcześnie, po toalecie idzie jeszcze na małą drzemkę i wtedy je koło 8.</td></tr>
+      <tr><td>do 10/11</td><td>Zazwyczaj śpi. Potem siku (czasem kupka), zabawa, jedzenie, spanko.</td></tr>
+      <tr><td>w ciągu dnia</td><td>Krótkie przerwy na siku.</td></tr>
+      <tr><td>ok. 16–17</td><td>Następna tura: siku (czasem kupka), trzeci posiłek.</td></tr>
+      <tr><td>po 17</td><td>Spacer 30–60 min.</td></tr>
+      <tr><td>ok. 18</td><td>Spanko.</td></tr>
+      <tr><td>ok. 20</td><td>Siku, czasem kupka, czwarty posiłek, spanko.</td></tr>
+      <tr><td>wieczorem</td><td>Ma „zoomies” (biega bez ładu i składu) – można się trochę pobawić, ale trzeba go „zmusić” do spania.</td></tr>
+      <tr><td>ok. 22</td><td>Ostatnie siku i najlepiej kupka, potem spanie nocne.</td></tr>
     </tbody>
   </table>
+  <h3>Ściąga</h3>
+  <ul>
+    <li><strong>Posiłki:</strong> zwykle o 8, 11, 16 i 20.</li>
+    <li><strong>Siku:</strong> po każdej drzemce trwającej 60 min lub dłużej.</li>
+    <li><strong>Kupka:</strong> średnio 3× dziennie, zwykle ok. 7, 10*, 13, 18*, 22. Godziny 7 i 13 to prawie pewniaczek; * = czasem.</li>
+  </ul>
 </section>
 
 <section id="karmienie">
   <h2>🍖 Karmienie</h2>
   <table>
     <tbody>
-      <tr><th style="width:38%">Karma (marka, rodzaj)</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Ilość na posiłek</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Liczba posiłków / godziny</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th style="width:38%">Ile dziennie</th><td>Łącznie <strong>175 g dziennie</strong> = 90% łyżki z zestawu, podzielone na <strong>4 posiłki</strong>.</td></tr>
+      <tr><th>Godziny posiłków</th><td>Zwykle 8, 11, 16, 20.</td></tr>
+      <tr><th>Karma (marka, rodzaj)</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
       <tr><th>Gdzie leży karma</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Smaczki treningowe</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Smaczki</th><td>Maks. 20 dziennie – patrz <a href="#wyprawka">Wyprawka</a>.</td></tr>
       <tr><th>Woda</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
       <tr><th>Czego nie dawać</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
     </tbody>
   </table>
+  <div class="tip">Na wolniejsze jedzenie: porcję karmy namocz 15 min w ciepłej wodzie i rozłóż na macie do lizania – je wtedy ok. 10 min.</div>
+</section>
+
+<section id="wyprawka">
+  <h2>🎒 Wyprawka (co jest w zestawie)</h2>
+  <ol>
+    <li><strong>Mata do lizania</strong> – porcję jedzenia namoczyć 15 min w ciepłej wodzie i rozłożyć na macie; je wtedy ok. 10 min.</li>
+    <li><strong>Zapas worków na kupę.</strong></li>
+    <li><strong>Kong + tubka z tuńczykiem</strong> – pół tubki do środka.</li>
+    <li><strong>Smaczki</strong> – zapas na ok. 3 dni. <strong>Maks. 20 dziennie.</strong> W nagrodę za komendy lub kupę na dworze.</li>
+    <li><strong>Zabawki do żucia</strong> – różową bardzo lubi.</li>
+    <li><strong>Zabawki do rzucania i memłania.</strong></li>
+    <li><strong>Gryzak na spotkania</strong> <span class="todo">[do uzupełnienia: co to dokładnie jest]</span> – jak masz spotkanie, a pies nie śpi i przeszkadza, można mu go dać na 30 min, maksymalnie 45 min.
+      <div class="warn">Uwaga: nie będzie chciał go oddać. Można spróbować przehandlować go za coś, ale trudno mu go zabrać.</div></li>
+  </ol>
 </section>
 
 <section id="spacery">
   <h2>🦮 Spacery i smycz</h2>
   <ul>
     <li><strong>Obecnie:</strong> spacery na smyczy ok. 2 m.</li>
+    <li><strong>Główny spacer:</strong> po 17, 30–60 min (patrz <a href="#plan">Plan dnia</a>).</li>
     <li><strong>Linka treningowa ok. 10 m</strong> (na spacery po trawie) – <span class="badge">planowane</span></li>
     <li><strong>Lokalizator GPS Tractive</strong> – <span class="badge">planowane</span></li>
   </ul>
+  <h3>Zalecenia</h3>
+  <ul>
+    <li><strong>Toaleta:</strong> idź od razu na ten sam trawnik najbliżej drzwi. Po siku odczekaj 5–10 min na kupkę. Za kupkę na dworze – duża nagroda („super” + smaczek).</li>
+    <li><strong>Na osiedlu</strong> trzymaj go na krótkiej smyczy (ok. 2 m).</li>
+    <li>Wyjścia krótkie i spokojne. Kończ spacer, póki jest spokojny i bierze smaczki.</li>
+    <li>Jeśli się boi, nie ciągnij go dalej.</li>
+    <li>Nagradzaj spokój, węszenie i patrzenie na Ciebie.</li>
+    <li><span class="cue">„szukaj”</span> <span class="badge">sugerowane</span> – rozrzuć smaczki w trawie, żeby go uspokoić.</li>
+    <li><strong>Długa linka</strong> <span class="badge">planowane</span> – tylko w spokojnych, otwartych miejscach, zapięta do szelek i zawsze trzymana w ręce.</li>
+  </ul>
+  <div class="warn"><strong>Stawy (szczeniak!):</strong> bez biegania przy człowieku, rowerze czy hulajnodze; bez wielokrotnego rzucania piłki/frisbee; bez długich spacerów po betonie. Niech sam dyktuje tempo. Jeśli kuleje albo nie chce się ruszać – przerwij i zadzwoń do weterynarza.</div>
   <table>
     <tbody>
-      <tr><th style="width:38%">Ile spacerów dziennie / jak długo</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Szelki czy obroża</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th style="width:38%">Szelki czy obroża</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
       <tr><th>Ulubione / dozwolone trasy</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
       <tr><th>Spuszczanie ze smyczy</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Inne psy i ludzie na spacerze</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Klucze, woreczki, gdzie co leży</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Witanie się z ludźmi i psami</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Klucze, woreczki – gdzie co leży</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
     </tbody>
   </table>
 </section>
 
 <section id="komendy">
   <h2>🎓 Komendy i trening</h2>
-  <p class="note">Używajmy wszyscy tych samych słów i gestów – to bardzo pomaga szczeniakowi. Lista zostanie uzupełniona na podstawie zaleceń trenera.</p>
+  <p class="note">Używajmy wszyscy tych samych słów – to bardzo pomaga szczeniakowi.</p>
   <table>
-    <thead><tr><th>Komenda (słowo)</th><th>Co znaczy</th><th>Gest / jak nagradzać</th></tr></thead>
+    <thead><tr><th>Słowo</th><th>Co znaczy</th></tr></thead>
     <tbody>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
-      <tr><td><span class="todo">[do uzupełnienia]</span></td><td></td><td></td></tr>
+      <tr><td class="cue">siad</td><td>Siada – reaguje.</td></tr>
+      <tr><td class="cue">chodź</td><td>Przychodzi do Ciebie – reaguje.</td></tr>
+      <tr><td class="cue">leż / leżeć</td><td>Kładzie się – reaguje.</td></tr>
+      <tr><td class="cue">zostań</td><td>Zostaje w miejscu – reaguje czasem.</td></tr>
+      <tr><td class="cue">zostaw</td><td>Nie rusza (np. smaczka) – reaguje czasem.</td></tr>
+      <tr><td class="cue">super</td><td>Słowo nagrody/pochwały – mów wesoło i daj smaczek.</td></tr>
+      <tr><td class="cue">okej</td><td>Komenda zwalniająca – „możesz już”.</td></tr>
+      <tr><td class="cue">szukaj <span class="badge">sugerowane</span></td><td>Smaczki rozrzucone w trawie – na uspokojenie.</td></tr>
     </tbody>
   </table>
-  <h3>Nad czym teraz pracujemy</h3>
-  <p><span class="todo">[do uzupełnienia]</span></p>
+  <p class="note">Gesty rąk: <span class="todo">[do uzupełnienia]</span></p>
+  <h3>Ćwiczenia</h3>
+  <ol>
+    <li><strong>Siad, leżeć, zostań.</strong> Odchodzimy kilka kroków, wracamy i rzucamy smaczek, mówiąc „okej”. Po każdym udanym kroku mówimy wesoło „super” i dajemy smaczka. <em>Wersja oszczędna:</em> smaczek dopiero za leżenie i zostanie.</li>
+    <li><strong>Siad, leżeć, zostaw.</strong> Kładziemy kilka smaczków (lub kawałków karmy) na podłodze przed nim. Mówimy „zostaw” i dajemy po jednym, mówiąc „super”. Gdy dobrze idzie, można wstać i odejść kilka kroków. Ostatni smaczek rzucamy obok niego, mówiąc „okej”. Ta zabawa bardzo go uspokaja.</li>
+  </ol>
+  <div class="tip">Pamiętaj o limicie: maks. 20 smaczków dziennie – można też ćwiczyć na kawałkach karmy z dziennej porcji.</div>
 </section>
 
 <section id="dom">
   <h2>🏠 Zasady w domu</h2>
+  <figure><img src="img/brian-kanapa.jpg" width="900" height="1200" loading="lazy" alt="Brian leży na zielonej kanapie"><figcaption>Brian w domu</figcaption></figure>
+  <ul>
+    <li><strong>Kojec/klatka</strong> służy do odpoczynku – <strong>nigdy</strong> jako kara.</li>
+    <li>Drzemka po wyjściu, zabawie albo szaleństwach. Nakręcony szczeniak potrzebuje drzemki, a nie więcej ruchu.</li>
+    <li>Wieczorne „zoomies”: chwila zabawy jest OK, ale potem trzeba go „zmusić” do spania.</li>
+    <li>Gryzienie rąk: jeśli zęby dotkną skóry – przerwij zabawę na 10–20 s i daj mu gryzak.</li>
+  </ul>
   <table>
     <tbody>
       <tr><th style="width:38%">Gdzie śpi</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
       <tr><th>Kanapa / łóżko</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Klatka / kojec</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
       <tr><th>Zostawanie samemu</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Zabawki i gryzaki</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
       <tr><th>Pomieszczenia niedostępne</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Wpadki z czystością</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
+      <tr><th>Witanie gości</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
     </tbody>
   </table>
 </section>
@@ -208,13 +268,33 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 14px 3
 <section id="zasady">
   <h2>✅ Co robić / ❌ czego unikać</h2>
   <div class="cols">
-    <div class="do"><h3>✅ Co robić</h3><ul><li><span class="todo">[do uzupełnienia]</span></li><li><span class="todo">[do uzupełnienia]</span></li><li><span class="todo">[do uzupełnienia]</span></li></ul></div>
-    <div class="dont"><h3>❌ Czego unikać</h3><ul><li><span class="todo">[do uzupełnienia]</span></li><li><span class="todo">[do uzupełnienia]</span></li><li><span class="todo">[do uzupełnienia]</span></li></ul></div>
+    <div class="do"><h3>✅ Co robić</h3><ul>
+      <li>Wyprowadzać na siku po każdej dłuższej drzemce (60 min+), zawsze na ten sam trawnik przy drzwiach.</li>
+      <li>Po siku poczekać 5–10 min na kupkę i mocno nagrodzić kupkę na dworze.</li>
+      <li>Chwalić wesołym „super” + smaczek; zwalniać słowem „okej”.</li>
+      <li>Pilnować drzemek – nakręcony szczeniak potrzebuje snu.</li>
+      <li>Nagradzać spokój, węszenie i patrzenie na człowieka.</li>
+      <li>Kończyć spacer, póki jest spokojny; pozwolić mu dyktować tempo.</li>
+      <li>Gdy zęby dotkną skóry: 10–20 s przerwy w zabawie i gryzak.</li>
+      <li>Wpadki w domu sprzątać środkiem enzymatycznym.</li>
+    </ul></div>
+    <div class="dont"><h3>❌ Czego unikać</h3><ul>
+      <li>Karania za wpadki w domu.</li>
+      <li>Używania kojca jako kary.</li>
+      <li>Ciągnięcia go dalej, gdy się boi.</li>
+      <li>Biegania z nim (przy człowieku, rowerze, hulajnodze).</li>
+      <li>Wielokrotnego rzucania piłki/frisbee.</li>
+      <li>Skakania z mebli.</li>
+      <li>Długich spacerów po betonie.</li>
+      <li>Więcej niż 20 smaczków dziennie.</li>
+      <li>Spuszczania ze smyczy: <span class="todo">[do uzupełnienia: zasady]</span></li>
+    </ul></div>
   </div>
+  <div class="warn">Kuleje albo nie chce się ruszać? Przerwij aktywność i zadzwoń do weterynarza.</div>
 </section>
 
 </main>
-<footer>Wersja 1 · ostatnia aktualizacja: <span id="updated">21.10.2026</span> · Pola <span class="todo">[do uzupełnienia]</span> czekają na dane.</footer>
+<footer>Wersja 1.1 · ostatnia aktualizacja: <span id="updated">21.10.2026</span> · Pola <span class="todo">[do uzupełnienia]</span> czekają na dane.</footer>
 <script>
 (function(){var b=new Date(2026,5,11),n=new Date(),m=(n.getFullYear()-b.getFullYear())*12+n.getMonth()-b.getMonth();if(n.getDate()<b.getDate())m--;if(m>=0){var e=document.getElementById('age');e.textContent='(ok. '+m+' mies.)';}})();
 </script>

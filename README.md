@@ -9,6 +9,8 @@ Statyczna strona (jeden plik `index.html`, CSS w środku) z instrukcją opieki n
 ## Hosting / redeploy
 Repo: https://github.com/ddknapik/brian-hq (GitHub Pages z gałęzi `main`, katalog `/`).
 
+Zdjęcia: oryginały w `/workspace/brian-site-inputs/` (NIE commitować – mają EXIF/GPS). Wersje web w `img/` (900×1200, bez metadanych), generowane skryptem Pillow (exif_transpose → thumbnail 1200 → zapis JPEG q80 bez EXIF).
+
 ```bash
 cd /workspace/brian-site
 git add -A && git commit -m "Aktualizacja" && git push
