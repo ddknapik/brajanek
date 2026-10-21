@@ -2,301 +2,384 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Brian – instrukcja opieki</title>
-<meta name="description" content="Instrukcja opieki nad Brianem, szczeniakiem spaniela bretońskiego.">
+<meta name="theme-color" content="#ffd6e8">
+<title>Brian – ściąga dla opiekuna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbfaf7;--card:#fff;--ink:#1f2328;--muted:#5b616b;--accent:#c0562b;--accent2:#2f6f4f;--line:#e6e2da;--todo:#fff3a3;--todo-ink:#5a4a00;--danger:#b42318;--danger-bg:#fdecea}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
-header{background:var(--accent);color:#fff;padding:20px 16px 16px}
-header h1{margin:0;font-size:1.6rem}
-header p{margin:4px 0 0;opacity:.92}
-nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
-nav a{display:inline-block;padding:10px 12px;color:var(--ink);text-decoration:none;font-size:.9rem}
-nav a:hover{color:var(--accent)}
-main{max-width:760px;margin:0 auto;padding:12px 14px 40px}
-section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0;scroll-margin-top:52px}
-h2{margin:0 0 8px;font-size:1.25rem;color:var(--accent)}
-h3{margin:14px 0 6px;font-size:1.02rem}
-ul{padding-left:1.2em;margin:6px 0}
-li{margin:3px 0}
-table{width:100%;border-collapse:collapse;font-size:.95rem;margin:6px 0}
-th,td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
-th{background:#f4f1ea}
-.todo{background:var(--todo);color:var(--todo-ink);padding:1px 5px;border-radius:4px;border:1px dashed #d4b800;font-style:italic}
-.emergency{border:2px solid var(--danger);background:var(--danger-bg)}
-.emergency h2{color:var(--danger)}
-.tel{display:block;color:var(--ink);text-decoration:none;padding:10px 12px;margin:6px 0;border-radius:10px;background:#fff;border:1px solid #f1c3bd}
-.tel b{display:block}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:8px 0}
-.facts div{background:#f6f3ec;border-radius:8px;padding:8px 10px}
-.facts small{display:block;color:var(--muted);font-size:.78rem}
-.badge{display:inline-block;font-size:.75rem;padding:1px 7px;border-radius:999px;background:#e8f1ec;color:var(--accent2);border:1px solid #c6dccf;vertical-align:middle}
-.cols{display:grid;grid-template-columns:1fr;gap:10px}
-@media(min-width:600px){.cols{grid-template-columns:1fr 1fr}}
-.do h3{color:var(--accent2)} .dont h3{color:var(--danger)}
-.note{color:var(--muted);font-size:.88rem}
-footer{text-align:center;color:var(--muted);font-size:.82rem;padding:10px 14px 30px}
-.print-btn{background:#fff;color:var(--accent);border:0;border-radius:8px;padding:6px 10px;font-weight:600;margin-top:10px;cursor:pointer}
-@media print{
-  nav,.print-btn{display:none}
-  body{background:#fff;font-size:11pt}
-  header{background:none;color:#000;padding:0 0 6px;border-bottom:2px solid #000}
-  section{border:1px solid #999;break-inside:avoid;page-break-inside:avoid;margin:8px 0;padding:8px 10px}
-  .emergency{background:none}
-  .todo{background:none;border:1px dashed #000;color:#000}
-  a{color:#000;text-decoration:none}
-  main{max-width:none;padding:0}
+:root{
+  --ink:#2a1d33; --ink2:#4a3a55; --cream:#fffaf0; --pink:#ffd6e8; --pink2:#ff9cc7; --mint:#c9f2df; --mint2:#5fc79a;
+  --sky:#d6ecff; --sky2:#7fb8ff; --lav:#e5dcff; --lav2:#a98cf0; --peach:#ffe2c6; --peach2:#ff9f5a; --yel:#fff3a8; --yel2:#f2c400;
+  --px:4px; --navh:68px;
+  --pix:"Press Start 2P",ui-monospace,monospace; --body:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
-.hero{display:block;width:100%;height:300px;object-fit:cover;object-position:50% 45%;border-radius:12px;margin:12px 0 0}
-figure{margin:10px 0}figure img{width:100%;max-width:360px;border-radius:10px;display:block}
-figcaption{color:var(--muted);font-size:.85rem;margin-top:4px}
-.cue{font-weight:700;color:var(--accent2)}
-ol{padding-left:1.3em}ol li{margin:6px 0}
-.tip{background:#eef6f1;border-left:4px solid var(--accent2);padding:8px 10px;border-radius:6px;margin:8px 0}
-.warn{background:#fff4ec;border-left:4px solid var(--accent);padding:8px 10px;border-radius:6px;margin:8px 0}
-@media print{.hero{max-height:8cm;width:auto}figure{display:none}.tip,.warn{background:none}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:12px}
+body{margin:0;font:600 19px/1.5 var(--body);color:var(--ink);background:linear-gradient(180deg,#d6ecff 0%,#f3e6ff 45%,#ffe8f2 100%) fixed;padding-bottom:calc(var(--navh) + 70px + env(safe-area-inset-bottom))}
+/* parallax sky */
+#sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+#sky .layer{position:absolute;inset:-20% 0 0 0;will-change:transform}
+#sky svg{position:absolute;image-rendering:pixelated}
+main{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:14px 14px 0}
+h1,h2,h3,.pix{font-family:var(--pix);font-weight:400;letter-spacing:.02em}
+h2{font-size:17px;line-height:1.5;margin:0;display:flex;align-items:center;gap:10px}
+h3{font-size:12px;line-height:1.6;margin:18px 0 8px;color:var(--ink2)}
+p{margin:8px 0}
+b,strong{font-weight:900}
+/* chunky pixel box */
+.box{position:relative;background:var(--cream);margin:22px 4px 26px;
+  box-shadow:0 calc(-1*var(--px)) 0 0 var(--ink),0 var(--px) 0 0 var(--ink),calc(-1*var(--px)) 0 0 0 var(--ink),var(--px) 0 0 0 var(--ink),
+  calc(2*var(--px)) calc(3*var(--px)) 0 0 rgba(42,29,51,.18)}
+.bar{display:flex;align-items:center;gap:8px;padding:9px 10px;background:var(--hd,var(--pink));border-bottom:var(--px) solid var(--ink)}
+.bar .t{font-family:var(--pix);font-size:10px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar i{display:inline-block;width:18px;height:18px;background:var(--cream);box-shadow:inset 0 0 0 3px var(--ink);font:normal 10px/18px var(--pix);text-align:center}
+.in{padding:14px 16px 16px}
+.ico{width:34px;height:auto;flex:none;image-rendering:pixelated}
+/* hero */
+.hero{--hd:var(--pink);text-align:center}
+.hero h1{font-size:30px;margin:6px 0 4px;color:var(--ink);text-shadow:3px 3px 0 var(--pink2)}
+.hero .sub{font-size:16px;color:var(--ink2);margin:0}
+.stage{position:relative;height:170px;margin:12px -16px -16px;background:linear-gradient(#d6ecff 0 70%,#9fe0b4 70% 100%);overflow:hidden;border-top:var(--px) solid var(--ink)}
+.stage .grass{position:absolute;left:0;right:0;bottom:0;height:30%;background:repeating-linear-gradient(90deg,#7fcf98 0 8px,#9fe0b4 8px 16px)}
+.stage .dog{position:absolute;left:50%;bottom:14%;width:170px;transform:translateX(-50%)}
+.stage .heart{position:absolute;width:22px;image-rendering:pixelated;animation:float 2.6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.sprite{position:relative}
+.sprite svg{display:block;width:100%;height:auto}
+.sprite svg+svg{position:absolute;inset:0}
+.sprite svg{visibility:hidden}
+.sprite[data-f="0"] svg:nth-child(1),.sprite[data-f="1"] svg:nth-child(2),.sprite[data-f="2"] svg:nth-child(3),.sprite[data-f="3"] svg:nth-child(4){visibility:visible}
+.note{font-size:16px;color:var(--ink2)}
+.tag{display:inline-block;font:10px/1 var(--pix);padding:6px 7px;background:var(--yel);box-shadow:0 0 0 3px var(--ink);margin:2px 6px 2px 3px;vertical-align:middle}
+/* co teraz */
+.now{--hd:var(--yel)}
+.now .lbl{font:11px/1 var(--pix);color:var(--ink2);margin:4px 0 8px}
+.now .big{font-size:26px;line-height:1.25;font-weight:900;margin:0 0 6px}
+.now .clock{font:12px/1 var(--pix);float:right;background:var(--ink);color:var(--yel);padding:7px 8px}
+.now .next{font-size:20px;font-weight:800;margin:14px 0 4px;padding-top:12px;border-top:3px dashed var(--ink)}
+.now .next b{white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.chip{background:var(--mint);box-shadow:0 0 0 3px var(--ink);padding:6px 10px;font-size:16px;font-weight:800}
+.chip .ci{width:18px;height:auto;vertical-align:-3px;margin-right:4px}
+.chip.p{background:var(--peach)}.chip.s{background:var(--sky)}
+.tl{position:relative;height:34px;margin:22px 2px 6px;background:var(--lav);box-shadow:0 0 0 3px var(--ink)}
+.tl span{position:absolute;top:0;bottom:0}
+.tl .k-food{background:var(--peach2)}.tl .k-walk{background:var(--mint2)}.tl .k-wc{background:var(--yel2)}.tl .k-sleep{background:var(--lav2)}.tl .k-play{background:var(--pink2)}
+.tl .me{position:absolute;top:-22px;width:22px;margin-left:-11px;transition:left .6s}
+.tl-x{position:relative;height:18px;font:9px/1 var(--pix);color:var(--ink2);margin:6px 2px 0}
+.tl-x span{position:absolute;transform:translateX(-50%)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:14px;margin-top:10px;color:var(--ink2)}
+.legend i{display:inline-block;width:12px;height:12px;box-shadow:0 0 0 2px var(--ink);margin-right:5px;vertical-align:-1px}
+/* plan */
+.plan{--hd:var(--sky)}
+ol.steps{list-style:none;margin:6px 0 0;padding:0}
+ol.steps li{display:grid;grid-template-columns:108px 1fr;gap:12px;padding:12px 0;border-bottom:3px dotted #cdbfe0}
+ol.steps li:last-child{border-bottom:0}
+ol.steps .h{font:10px/1.5 var(--pix);background:var(--sky);box-shadow:0 0 0 3px var(--ink);padding:6px 4px;text-align:center;align-self:start}
+ol.steps li.cur .h{background:var(--yel)}
+ol.steps li.cur{background:linear-gradient(90deg,rgba(255,243,168,.6),transparent)}
+ol.steps small{display:block;font-size:16px;color:var(--ink2);font-weight:600;margin-top:3px}
+.grid3{display:grid;grid-template-columns:1fr;gap:14px;margin-top:8px}
+.mini{background:#fff;box-shadow:0 0 0 3px var(--ink);padding:10px 12px}
+.mini .pix{font-size:10px;display:block;margin-bottom:6px;color:var(--ink2)}
+.mini b.v{font-size:21px}
+/* food */
+.food{--hd:var(--peach)}
+.stat{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:6px 0}
+.stat .num{font:28px/1 var(--pix);color:var(--ink);text-shadow:3px 3px 0 var(--peach2)}
+.meals{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.meals span{font:13px/1 var(--pix);background:var(--peach);box-shadow:0 0 0 3px var(--ink);padding:9px 10px}
+/* kit */
+.kit{--hd:var(--mint)}
+ol.items{list-style:none;padding:0;margin:4px 0 0;counter-reset:k}
+ol.items li{counter-increment:k;position:relative;padding:12px 0 12px 52px;border-bottom:3px dotted #cdbfe0}
+ol.items li:last-child{border-bottom:0}
+ol.items li::before{content:counter(k);position:absolute;left:2px;top:12px;width:34px;height:34px;font:13px/34px var(--pix);text-align:center;background:var(--mint);box-shadow:0 0 0 3px var(--ink)}
+.warn{background:var(--pink);box-shadow:0 0 0 3px var(--ink);padding:9px 12px;margin-top:10px;font-size:17px}
+/* commands */
+.cmd{--hd:var(--lav)}
+.cues{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin:8px 0 4px}
+.cue{background:#fff;box-shadow:0 0 0 3px var(--ink);padding:10px}
+.cue .w{font:13px/1.4 var(--pix);display:block;margin-bottom:6px}
+.cue small{font-size:15px;color:var(--ink2);font-weight:700}
+.cue.sp{background:var(--yel)}.cue.ok{background:var(--mint)}
+.ex{background:#fff;box-shadow:0 0 0 3px var(--ink);padding:12px 14px;margin:14px 0}
+.ex .pix{font-size:11px;display:block;margin-bottom:8px}
+.ex ol{margin:0;padding-left:1.2em}.ex li{margin:5px 0}
+.q{font-family:var(--pix);font-size:.62em;background:var(--yel);padding:2px 4px;box-shadow:0 0 0 2px var(--ink);white-space:nowrap;vertical-align:.1em;margin:0 4px}
+footer{position:relative;z-index:1;text-align:center;font-size:14px;color:var(--ink2);padding:6px 14px 20px}
+.counter{display:inline-flex;gap:2px;margin:6px 0}
+.counter span{font:12px/1 var(--pix);background:var(--ink);color:#7dff9a;padding:6px 5px}
+/* nav */
+nav.qn{position:fixed;z-index:20;left:0;right:0;bottom:0;display:flex;background:var(--cream);border-top:var(--px) solid var(--ink);padding-bottom:env(safe-area-inset-bottom)}
+nav.qn a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;height:var(--navh);color:var(--ink);text-decoration:none;font:10px/1 var(--pix);border-right:3px solid var(--ink)}
+nav.qn a:last-child{border-right:0}
+nav.qn a img,nav.qn a svg{width:26px;height:auto}
+nav.qn a.on{background:var(--yel)}
+nav.qn a:active{background:var(--pink)}
+/* walker */
+#walker{position:fixed;z-index:15;left:0;bottom:calc(var(--navh) + env(safe-area-inset-bottom) + 2px);width:84px;pointer-events:none;transform:translateX(-120px);will-change:transform}
+#walker .sprite.flip{transform:scaleX(-1)}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
+.js .rv.vis{opacity:1;transform:none}
+@media (min-width:640px){body{font-size:20px}.grid3{grid-template-columns:1fr 1fr 1fr}h2{font-size:19px}.hero h1{font-size:40px}.stage{height:210px}.stage .dog{width:210px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.stage .heart{animation:none}#walker{display:none}}
+@media print{
+  #sky,#walker,nav.qn,.stage,.counter,.bar i{display:none!important}
+  body{background:#fff;padding:0;font-size:12pt}
+  .box{box-shadow:none;border:2px solid #000;margin:8px 0;break-inside:avoid}
+  .js .rv{opacity:1;transform:none}
+  .bar{background:#eee!important}
+}
 </style>
 </head>
 <body>
-<header>
-  <h1>🐾 Brian – instrukcja opieki</h1>
-  <p>Spaniel bretoński · szczeniak · ur. 11.06.2026</p>
-  <button class="print-btn" onclick="window.print()">🖨️ Drukuj</button>
-</header>
-
-<nav aria-label="Spis treści">
-  <a href="#nagle">🚨 Najważniejsze</a><a href="#plan">Plan dnia</a><a href="#karmienie">Karmienie</a><a href="#wyprawka">Wyprawka</a><a href="#spacery">Spacery</a><a href="#komendy">Komendy</a><a href="#dom">Zasady w domu</a><a href="#zdrowie">Zdrowie</a><a href="#kontakty">Kontakty</a><a href="#zasady">Co robić / unikać</a>
-</nav>
+<script>document.documentElement.classList.add('js')</script>
+<div id="sky" aria-hidden="true"><div class="layer" data-s="0.12"></div><div class="layer" data-s="0.3"></div></div>
 
 <main>
-<img class="hero" src="img/brian-trawa.jpg" width="900" height="1200" alt="Brian siedzi na trawie w szelkach">
+  <section class="box hero" id="top">
+    <div class="bar"><span class="t">♥ BRIAN.EXE</span><i>_</i><i>□</i><i>×</i></div>
+    <div class="in">
+      <h1>BRIAN</h1>
+      <p class="sub">spaniel bretoński · ur. 11.06.2026</p>
+      <p class="note" style="margin-top:10px">Ściąga dla opiekuna. Wszystkie godziny są <b>orientacyjne</b> – każdy dzień jest trochę inny.</p>
+      <div class="stage"><div class="grass"></div><div class="sprite dog" id="heroDog" data-f="0"></div></div>
+    </div>
+  </section>
 
-<section id="nagle" class="emergency">
-  <h2>🚨 Najważniejsze / w nagłych wypadkach</h2>
-  <p><strong>W razie nagłego wypadku najpierw zadzwoń do weterynarza</strong>, a potem do Damiana.</p>
-  <a class="tel" href="#kontakty"><b>Weterynarz (stały)</b><span class="todo">[do uzupełnienia: nazwa kliniki, telefon]</span></a>
-  <a class="tel" href="#kontakty"><b>Całodobowa klinika (Kraków)</b><span class="todo">[do uzupełnienia: nazwa, adres, telefon]</span></a>
-  <a class="tel" href="#kontakty"><b>Damian</b><span class="todo">[do uzupełnienia: telefon]</span></a>
-  <h3>Szybkie fakty</h3>
-  <div class="facts">
-    <div><small>Imię</small>Brian</div>
-    <div><small>Rasa</small>Spaniel bretoński (Brittany)</div>
-    <div><small>Urodzony</small>11.06.2026 <span id="age"></span></div>
-    <div><small>Mieszka</small>Mieszkanie w Krakowie</div>
-    <div><small>Chip</small><span class="todo">[do uzupełnienia: nr chipa]</span></div>
-    <div><small>Alergie</small><span class="todo">[do uzupełnienia]</span></div>
-    <div><small>Leki</small><span class="todo">[do uzupełnienia]</span></div>
-    <div><small>Waga</small><span class="todo">[do uzupełnienia]</span></div>
-    <div><small>Jedzenie</small>175 g/dzień, 4 posiłki</div>
-    <div><small>Smaczki</small>maks. 20 dziennie</div>
-  </div>
-  <h3>Jeśli Brian ucieknie / zgubi się</h3>
-  <p><span class="todo">[do uzupełnienia: procedura – kogo zawiadomić, gdzie szukać]</span></p>
-  <p class="note">Kuleje lub nie chce się ruszać → przerwij i dzwoń do weterynarza.</p>
-  <p class="note">Lokalizator GPS Tractive – <span class="badge">planowane</span> (jeszcze go nie mamy).</p>
-</section>
+  <section class="box now rv" id="teraz" aria-live="polite">
+    <div class="bar"><span class="t">★ CO TERAZ?</span><i>×</i></div>
+    <div class="in">
+      <span class="clock" id="clk">--:--</span>
+      <div class="lbl">TERAZ</div>
+      <p class="big" id="nowT">Plan dnia jest niżej ↓</p>
+      <p class="note" id="nowD"></p>
+      <p class="next" id="nextT"></p>
+      <div class="chips" id="chips"></div>
+      <div class="tl" id="tl"></div>
+      <div class="tl-x"><span style="left:0%">7</span><span style="left:26.7%">11</span><span style="left:60%">16</span><span style="left:86.7%">20</span><span style="left:100%">22</span></div>
+      <div class="legend"><span><i style="background:var(--yel2)"></i>siku/kupka</span><span><i style="background:var(--peach2)"></i>jedzenie</span><span><i style="background:var(--mint2)"></i>spacer</span><span><i style="background:var(--lav2)"></i>spanko</span></div>
+    </div>
+  </section>
 
-<section id="plan">
-  <h2>🕒 Plan dnia</h2>
-  <p class="note">Godziny są orientacyjne – każdy dzień jest trochę inny.</p>
-  <table>
-    <thead><tr><th style="width:24%">Kiedy</th><th>Co robimy</th></tr></thead>
-    <tbody>
-      <tr><td>ok. 7:00</td><td>Pobudka → siku i kupka → śniadanie → zabawa. Czasem, jak wstanie za wcześnie, po toalecie idzie jeszcze na małą drzemkę i wtedy je koło 8.</td></tr>
-      <tr><td>do 10/11</td><td>Zazwyczaj śpi. Potem siku (czasem kupka), zabawa, jedzenie, spanko.</td></tr>
-      <tr><td>w ciągu dnia</td><td>Krótkie przerwy na siku.</td></tr>
-      <tr><td>ok. 16–17</td><td>Następna tura: siku (czasem kupka), trzeci posiłek.</td></tr>
-      <tr><td>po 17</td><td>Spacer 30–60 min.</td></tr>
-      <tr><td>ok. 18</td><td>Spanko.</td></tr>
-      <tr><td>ok. 20</td><td>Siku, czasem kupka, czwarty posiłek, spanko.</td></tr>
-      <tr><td>wieczorem</td><td>Ma „zoomies” (biega bez ładu i składu) – można się trochę pobawić, ale trzeba go „zmusić” do spania.</td></tr>
-      <tr><td>ok. 22</td><td>Ostatnie siku i najlepiej kupka, potem spanie nocne.</td></tr>
-    </tbody>
-  </table>
-  <h3>Ściąga</h3>
-  <ul>
-    <li><strong>Posiłki:</strong> zwykle o 8, 11, 16 i 20.</li>
-    <li><strong>Siku:</strong> po każdej drzemce trwającej 60 min lub dłużej.</li>
-    <li><strong>Kupka:</strong> średnio 3× dziennie, zwykle ok. 7, 10*, 13, 18*, 22. Godziny 7 i 13 to prawie pewniaczek; * = czasem.</li>
-  </ul>
-</section>
+  <section class="box plan rv" id="plan">
+    <div class="bar"><span class="t">PLAN_DNIA.TXT</span><i>×</i></div>
+    <div class="in">
+      <h2><span data-icon="clock" class="ico"></span>Plan dnia</h2>
+      <ol class="steps" id="steps">
+        <li data-b="0"><span class="h">ok. 7:00</span><div>Pobudka → siku i kupka → śniadanie → zabawa.<small>Jak wstanie za wcześnie: po toalecie idzie jeszcze na małą drzemkę i wtedy je koło 8.</small></div></li>
+        <li data-b="1"><span class="h">do 10/11</span><div>Zazwyczaj śpi.</div></li>
+        <li data-b="2"><span class="h">ok. 10–11</span><div>Siku (czasem kupka) → zabawa → jedzenie → spanko.</div></li>
+        <li data-b="3"><span class="h">w ciągu dnia</span><div>Krótkie przerwy na siku.</div></li>
+        <li data-b="4"><span class="h">ok. 16–17</span><div>Siku (czasem kupka) → trzeci posiłek.</div></li>
+        <li data-b="5"><span class="h">po 17</span><div>Spacer 30–60 min.</div></li>
+        <li data-b="6"><span class="h">ok. 18</span><div>Spanko.</div></li>
+        <li data-b="7"><span class="h">ok. 20</span><div>Siku, czasem kupka → czwarty posiłek → spanko.</div></li>
+        <li data-b="8"><span class="h">wieczorem</span><div>„Zoomies” – biega bez ładu i składu.<small>Można się trochę pobawić, ale trzeba go „zmusić” do spania.</small></div></li>
+        <li data-b="9"><span class="h">ok. 22</span><div>Ostatnie siku i najlepiej kupka → spanie nocne.</div></li>
+      </ol>
+      <h3>★ ŚCIĄGA</h3>
+      <div class="grid3">
+        <div class="mini"><span class="pix">POSIŁKI</span><b class="v">8 · 11 · 16 · 20</b></div>
+        <div class="mini"><span class="pix">SIKU</span><b class="v">po każdej drzemce 60 min+</b></div>
+        <div class="mini"><span class="pix">KUPKA ~3× DZ.</span><b class="v">7 · 10* · 13 · 18* · 22</b><br><small class="note">7 i 13 to prawie pewniaczek · * = czasem</small></div>
+      </div>
+    </div>
+  </section>
 
-<section id="karmienie">
-  <h2>🍖 Karmienie</h2>
-  <table>
-    <tbody>
-      <tr><th style="width:38%">Ile dziennie</th><td>Łącznie <strong>175 g dziennie</strong> = 90% łyżki z zestawu, podzielone na <strong>4 posiłki</strong>.</td></tr>
-      <tr><th>Godziny posiłków</th><td>Zwykle 8, 11, 16, 20.</td></tr>
-      <tr><th>Karma (marka, rodzaj)</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Gdzie leży karma</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Smaczki</th><td>Maks. 20 dziennie – patrz <a href="#wyprawka">Wyprawka</a>.</td></tr>
-      <tr><th>Woda</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Czego nie dawać</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-    </tbody>
-  </table>
-  <div class="tip">Na wolniejsze jedzenie: porcję karmy namocz 15 min w ciepłej wodzie i rozłóż na macie do lizania – je wtedy ok. 10 min.</div>
-</section>
+  <section class="box food rv" id="jedzenie">
+    <div class="bar"><span class="t">JEDZENIE.EXE</span><i>×</i></div>
+    <div class="in">
+      <h2><span data-icon="bowl" class="ico"></span>Jedzenie</h2>
+      <div class="stat"><span class="num">175 g</span><span>dziennie łącznie<br><b>= 90% łyżki z zestawu</b></span></div>
+      <p>Podzielone na <b>4 posiłki</b>:</p>
+      <div class="meals"><span>8:00</span><span>11:00</span><span>16:00</span><span>20:00</span></div>
+    </div>
+  </section>
 
-<section id="wyprawka">
-  <h2>🎒 Wyprawka (co jest w zestawie)</h2>
-  <ol>
-    <li><strong>Mata do lizania</strong> – porcję jedzenia namoczyć 15 min w ciepłej wodzie i rozłożyć na macie; je wtedy ok. 10 min.</li>
-    <li><strong>Zapas worków na kupę.</strong></li>
-    <li><strong>Kong + tubka z tuńczykiem</strong> – pół tubki do środka.</li>
-    <li><strong>Smaczki</strong> – zapas na ok. 3 dni. <strong>Maks. 20 dziennie.</strong> W nagrodę za komendy lub kupę na dworze.</li>
-    <li><strong>Zabawki do żucia</strong> – różową bardzo lubi.</li>
-    <li><strong>Zabawki do rzucania i memłania.</strong></li>
-    <li><strong>Gryzak na spotkania</strong> <span class="todo">[do uzupełnienia: co to dokładnie jest]</span> – jak masz spotkanie, a pies nie śpi i przeszkadza, można mu go dać na 30 min, maksymalnie 45 min.
-      <div class="warn">Uwaga: nie będzie chciał go oddać. Można spróbować przehandlować go za coś, ale trudno mu go zabrać.</div></li>
-  </ol>
-</section>
+  <section class="box kit rv" id="wyprawka">
+    <div class="bar"><span class="t">WYPRAWKA/</span><i>×</i></div>
+    <div class="in">
+      <h2><span data-icon="bone" class="ico"></span>Wyprawka</h2>
+      <p class="note">Co jest w zestawie:</p>
+      <ol class="items">
+        <li><b>Mata do lizania</b> – porcję jedzenia namocz 15 min w ciepłej wodzie i rozłóż na macie. Je wtedy ok. 10 min.</li>
+        <li><b>Worki na kupę</b> – zapas.</li>
+        <li><b>Kong + tubka z tuńczykiem</b> – pół tubki do środka.</li>
+        <li><b>Smaczki</b> – zapas na ok. 3 dni. <b>Maks. 20 dziennie.</b> W nagrodę za komendy lub kupę na dworze.</li>
+        <li><b>Zabawki do żucia</b> – różową bardzo lubi.</li>
+        <li><b>Zabawki do rzucania i memłania.</b></li>
+        <li><b>Rzecz nr 7 z zestawu – gryzak „na spotkania”.</b> Jak masz spotkanie, a Brian nie śpi i przeszkadza, daj mu go na <b>30 min, maksymalnie 45 min</b>.
+          <div class="warn">⚠ Nie będzie chciał oddać. Możesz spróbować przehandlować go za coś, ale trudno mu go zabrać.</div></li>
+      </ol>
+    </div>
+  </section>
 
-<section id="spacery">
-  <h2>🦮 Spacery i smycz</h2>
-  <ul>
-    <li><strong>Obecnie:</strong> spacery na smyczy ok. 2 m.</li>
-    <li><strong>Główny spacer:</strong> po 17, 30–60 min (patrz <a href="#plan">Plan dnia</a>).</li>
-    <li><strong>Linka treningowa ok. 10 m</strong> (na spacery po trawie) – <span class="badge">planowane</span></li>
-    <li><strong>Lokalizator GPS Tractive</strong> – <span class="badge">planowane</span></li>
-  </ul>
-  <h3>Zalecenia</h3>
-  <ul>
-    <li><strong>Toaleta:</strong> idź od razu na ten sam trawnik najbliżej drzwi. Po siku odczekaj 5–10 min na kupkę. Za kupkę na dworze – duża nagroda („super” + smaczek).</li>
-    <li><strong>Na osiedlu</strong> trzymaj go na krótkiej smyczy (ok. 2 m).</li>
-    <li>Wyjścia krótkie i spokojne. Kończ spacer, póki jest spokojny i bierze smaczki.</li>
-    <li>Jeśli się boi, nie ciągnij go dalej.</li>
-    <li>Nagradzaj spokój, węszenie i patrzenie na Ciebie.</li>
-    <li><span class="cue">„szukaj”</span> <span class="badge">sugerowane</span> – rozrzuć smaczki w trawie, żeby go uspokoić.</li>
-    <li><strong>Długa linka</strong> <span class="badge">planowane</span> – tylko w spokojnych, otwartych miejscach, zapięta do szelek i zawsze trzymana w ręce.</li>
-  </ul>
-  <div class="warn"><strong>Stawy (szczeniak!):</strong> bez biegania przy człowieku, rowerze czy hulajnodze; bez wielokrotnego rzucania piłki/frisbee; bez długich spacerów po betonie. Niech sam dyktuje tempo. Jeśli kuleje albo nie chce się ruszać – przerwij i zadzwoń do weterynarza.</div>
-  <table>
-    <tbody>
-      <tr><th style="width:38%">Szelki czy obroża</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Ulubione / dozwolone trasy</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Spuszczanie ze smyczy</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Witanie się z ludźmi i psami</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Klucze, woreczki – gdzie co leży</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-    </tbody>
-  </table>
-</section>
-
-<section id="komendy">
-  <h2>🎓 Komendy i trening</h2>
-  <p class="note">Używajmy wszyscy tych samych słów – to bardzo pomaga szczeniakowi.</p>
-  <table>
-    <thead><tr><th>Słowo</th><th>Co znaczy</th></tr></thead>
-    <tbody>
-      <tr><td class="cue">siad</td><td>Siada – reaguje.</td></tr>
-      <tr><td class="cue">chodź</td><td>Przychodzi do Ciebie – reaguje.</td></tr>
-      <tr><td class="cue">leż / leżeć</td><td>Kładzie się – reaguje.</td></tr>
-      <tr><td class="cue">zostań</td><td>Zostaje w miejscu – reaguje czasem.</td></tr>
-      <tr><td class="cue">zostaw</td><td>Nie rusza (np. smaczka) – reaguje czasem.</td></tr>
-      <tr><td class="cue">super</td><td>Słowo nagrody/pochwały – mów wesoło i daj smaczek.</td></tr>
-      <tr><td class="cue">okej</td><td>Komenda zwalniająca – „możesz już”.</td></tr>
-      <tr><td class="cue">szukaj <span class="badge">sugerowane</span></td><td>Smaczki rozrzucone w trawie – na uspokojenie.</td></tr>
-    </tbody>
-  </table>
-  <p class="note">Gesty rąk: <span class="todo">[do uzupełnienia]</span></p>
-  <h3>Ćwiczenia</h3>
-  <ol>
-    <li><strong>Siad, leżeć, zostań.</strong> Odchodzimy kilka kroków, wracamy i rzucamy smaczek, mówiąc „okej”. Po każdym udanym kroku mówimy wesoło „super” i dajemy smaczka. <em>Wersja oszczędna:</em> smaczek dopiero za leżenie i zostanie.</li>
-    <li><strong>Siad, leżeć, zostaw.</strong> Kładziemy kilka smaczków (lub kawałków karmy) na podłodze przed nim. Mówimy „zostaw” i dajemy po jednym, mówiąc „super”. Gdy dobrze idzie, można wstać i odejść kilka kroków. Ostatni smaczek rzucamy obok niego, mówiąc „okej”. Ta zabawa bardzo go uspokaja.</li>
-  </ol>
-  <div class="tip">Pamiętaj o limicie: maks. 20 smaczków dziennie – można też ćwiczyć na kawałkach karmy z dziennej porcji.</div>
-</section>
-
-<section id="dom">
-  <h2>🏠 Zasady w domu</h2>
-  <figure><img src="img/brian-kanapa.jpg" width="900" height="1200" loading="lazy" alt="Brian leży na zielonej kanapie"><figcaption>Brian w domu</figcaption></figure>
-  <ul>
-    <li><strong>Kojec/klatka</strong> służy do odpoczynku – <strong>nigdy</strong> jako kara.</li>
-    <li>Drzemka po wyjściu, zabawie albo szaleństwach. Nakręcony szczeniak potrzebuje drzemki, a nie więcej ruchu.</li>
-    <li>Wieczorne „zoomies”: chwila zabawy jest OK, ale potem trzeba go „zmusić” do spania.</li>
-    <li>Gryzienie rąk: jeśli zęby dotkną skóry – przerwij zabawę na 10–20 s i daj mu gryzak.</li>
-  </ul>
-  <table>
-    <tbody>
-      <tr><th style="width:38%">Gdzie śpi</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Kanapa / łóżko</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Zostawanie samemu</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Pomieszczenia niedostępne</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Witanie gości</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-    </tbody>
-  </table>
-</section>
-
-<section id="zdrowie">
-  <h2>🩺 Zdrowie i weterynarz</h2>
-  <table>
-    <tbody>
-      <tr><th style="width:38%">Weterynarz (klinika)</th><td><span class="todo">[do uzupełnienia: nazwa]</span></td></tr>
-      <tr><th>Adres</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Telefon</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Godziny otwarcia</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Całodobowa klinika</th><td><span class="todo">[do uzupełnienia: nazwa, adres, telefon]</span></td></tr>
-      <tr><th>Szczepienia</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Odrobaczanie / kleszcze i pchły</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Alergie</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Leki</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Numer chipa</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Książeczka zdrowia – gdzie leży</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><th>Ubezpieczenie</th><td><span class="todo">[do uzupełnienia]</span></td></tr>
-    </tbody>
-  </table>
-</section>
-
-<section id="kontakty">
-  <h2>📞 Kontakty alarmowe</h2>
-  <table>
-    <thead><tr><th>Kto</th><th>Telefon</th></tr></thead>
-    <tbody>
-      <tr><td>Damian</td><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><td>Żona Damiana <span class="todo">[do uzupełnienia: imię]</span></td><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><td>Kontakt zapasowy (rodzina) <span class="todo">[do uzupełnienia]</span></td><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><td>Weterynarz</td><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><td>Całodobowa klinika</td><td><span class="todo">[do uzupełnienia]</span></td></tr>
-      <tr><td>Trener / behawiorysta</td><td><span class="todo">[do uzupełnienia, jeśli dotyczy]</span></td></tr>
-    </tbody>
-  </table>
-</section>
-
-<section id="zasady">
-  <h2>✅ Co robić / ❌ czego unikać</h2>
-  <div class="cols">
-    <div class="do"><h3>✅ Co robić</h3><ul>
-      <li>Wyprowadzać na siku po każdej dłuższej drzemce (60 min+), zawsze na ten sam trawnik przy drzwiach.</li>
-      <li>Po siku poczekać 5–10 min na kupkę i mocno nagrodzić kupkę na dworze.</li>
-      <li>Chwalić wesołym „super” + smaczek; zwalniać słowem „okej”.</li>
-      <li>Pilnować drzemek – nakręcony szczeniak potrzebuje snu.</li>
-      <li>Nagradzać spokój, węszenie i patrzenie na człowieka.</li>
-      <li>Kończyć spacer, póki jest spokojny; pozwolić mu dyktować tempo.</li>
-      <li>Gdy zęby dotkną skóry: 10–20 s przerwy w zabawie i gryzak.</li>
-      <li>Wpadki w domu sprzątać środkiem enzymatycznym.</li>
-    </ul></div>
-    <div class="dont"><h3>❌ Czego unikać</h3><ul>
-      <li>Karania za wpadki w domu.</li>
-      <li>Używania kojca jako kary.</li>
-      <li>Ciągnięcia go dalej, gdy się boi.</li>
-      <li>Biegania z nim (przy człowieku, rowerze, hulajnodze).</li>
-      <li>Wielokrotnego rzucania piłki/frisbee.</li>
-      <li>Skakania z mebli.</li>
-      <li>Długich spacerów po betonie.</li>
-      <li>Więcej niż 20 smaczków dziennie.</li>
-      <li>Spuszczania ze smyczy: <span class="todo">[do uzupełnienia: zasady]</span></li>
-    </ul></div>
-  </div>
-  <div class="warn">Kuleje albo nie chce się ruszać? Przerwij aktywność i zadzwoń do weterynarza.</div>
-</section>
-
+  <section class="box cmd rv" id="komendy">
+    <div class="bar"><span class="t">KOMENDY.TXT</span><i>×</i></div>
+    <div class="in">
+      <h2><span data-icon="ball" class="ico"></span>Komendy</h2>
+      <p class="note">Na co reaguje:</p>
+      <div class="cues">
+        <div class="cue"><span class="w">siad</span><small>reaguje</small></div>
+        <div class="cue"><span class="w">chodź</span><small>reaguje</small></div>
+        <div class="cue"><span class="w">leż / leżeć</span><small>reaguje</small></div>
+        <div class="cue"><span class="w">zostań</span><small>czasem</small></div>
+        <div class="cue"><span class="w">zostaw</span><small>czasem</small></div>
+        <div class="cue sp"><span class="w">super</span><small>pochwała – wesoło + smaczek</small></div>
+        <div class="cue ok"><span class="w">okej</span><small>komenda zwalniająca</small></div>
+      </div>
+      <h3>♥ ĆWICZENIE 1</h3>
+      <div class="ex"><span class="pix">siad · leżeć · zostań</span>
+        <ol><li>Odchodzisz kilka kroków, wracasz i rzucasz smaczek, mówiąc <span class="q">okej</span>.</li>
+        <li>Po każdym udanym kroku mówisz wesoło <span class="q">super</span> i dajesz smaczka.</li>
+        <li><b>Wersja oszczędna:</b> smaczek dopiero za leżenie i zostanie.</li></ol></div>
+      <h3>♥ ĆWICZENIE 2</h3>
+      <div class="ex"><span class="pix">siad · leżeć · zostaw</span>
+        <ol><li>Kładziesz kilka smaczków (lub kawałków karmy) na podłodze przed nim.</li>
+        <li>Mówisz <span class="q">zostaw</span> i dajesz po jednym, mówiąc <span class="q">super</span>.</li>
+        <li>Gdy dobrze idzie, możesz wstać i odejść kilka kroków.</li>
+        <li>Ostatni smaczek rzucasz obok niego, mówiąc <span class="q">okej</span>.</li></ol>
+        <p class="note">Ta zabawa bardzo go uspokaja.</p></div>
+    </div>
+  </section>
 </main>
-<footer>Wersja 1.1 · ostatnia aktualizacja: <span id="updated">21.10.2026</span> · Pola <span class="todo">[do uzupełnienia]</span> czekają na dane.</footer>
+
+<footer>
+  <div>Licznik odwiedzin</div>
+  <div class="counter" aria-label="licznik odwiedzin – żart"><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>1</span></div>
+  <div>(to Ty! ♥) · strona przyjazna psom · najlepiej oglądać z psem na kolanach</div>
+</footer>
+
+<nav class="qn" aria-label="Szybka nawigacja">
+  <a href="#plan" data-sec="plan"><span data-icon="clock"></span>Plan dnia</a>
+  <a href="#jedzenie" data-sec="jedzenie"><span data-icon="bowl"></span>Jedzenie</a>
+  <a href="#wyprawka" data-sec="wyprawka"><span data-icon="bone"></span>Wyprawka</a>
+  <a href="#komendy" data-sec="komendy"><span data-icon="ball"></span>Komendy</a>
+</nav>
+
+<div id="walker" aria-hidden="true"><div class="sprite" data-f="0"></div></div>
+
 <script>
-(function(){var b=new Date(2026,5,11),n=new Date(),m=(n.getFullYear()-b.getFullYear())*12+n.getMonth()-b.getMonth();if(n.getDate()<b.getDate())m--;if(m>=0){var e=document.getElementById('age');e.textContent='(ok. '+m+' mies.)';}})();
+/* ---------- pixel renderer ---------- */
+const PAL={K:"#3b2416",O:"#e07a2e",D:"#b4561f",W:"#fff8ef",G:"#ecdcc8",N:"#5a2a22",E:"#241208",F:"#e9914a",
+  P:"#8ec5ff",R:"#ff6f9c",Y:"#ffd23f",S:"#ffffff",C:"#c7f0ff",B:"#a98cf0",M:"#7fcf98",Q:"#ff9f5a"};
+function svg(grid,cls){let r="";const w=grid[0].length;
+  grid.forEach((row,y)=>{for(let x=0;x<row.length;x++){const c=PAL[row[x]];if(c)r+=`<rect x="${x}" y="${y}" width="1.04" height="1.04" fill="${c}"/>`;}});
+  return `<svg ${cls?`class="${cls}"`:""} viewBox="0 0 ${w} ${grid.length}" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${r}</svg>`;}
+/* Brian: Brittany spaniel, orange/white, freckled legs, white blaze, floppy orange ear, short tail */
+const BODY=[
+"...................KKKKK......",
+"..................KOOOWOK.....",
+".................KOOOOWOOK....",
+".................KOOOOWOEOK...",
+"................KDDOOOWWWWKK..",
+"................KDDDOWWWWWWNK.",
+"................KDDDDKWWWWWKK.",
+"...KK...........KDDDDKKWWKK...",
+"..KOK.KKKKKKKKKKKDDDDKWWK.....",
+"..KOOKWWOOOOOWWWWKDDKWWWK.....",
+"...KKWOOOOOOOWWWWWKKWWWWK.....",
+"....KWWOOOOOWWWWOOWWWWWK......",
+"....KWWWOOWWWWWWOOOWWWWK......",
+"....KWWWWWWWWWWWWWWWWWWK......"];
+const LEG=["KWWK","KWFK","KWWK","KFWK","KWWK","KKKK"],LEGF=["KGGK","KGFK","KGGK","KFGK","KGGK","KKKK"];
+const POS=[[3,8,15,20],[6,6,17,17],[8,3,20,15],[6,6,17,17]];
+function dogFrame(f){const bob=f%2;const rows=[];for(let y=0;y<7;y++)rows.push(Array(30).fill("."));
+  for(let x=5;x<=22;x++)rows[0][x]="K";
+  const put=(x,g)=>{for(let y=0;y<6;y++)for(let i=0;i<4;i++)rows[y+1][x+i]=g[y][i];rows[0][x+1]="W";rows[0][x+2]="W";};
+  const p=POS[f];put(p[0],LEGF);put(p[2],LEGF);put(p[1],LEG);put(p[3],LEG);
+  const blank=".".repeat(30);const body=bob?[blank].concat(BODY):BODY.concat([]);
+  let legs=rows.map(r=>r.join(""));if(bob)legs.splice(1,1);
+  const g=body.concat(legs);while(g.length<21)g.push(blank);return g;}
+const DOG=[0,1,2,3].map(f=>svg(dogFrame(f))).join("");
+const ICONS={
+ bowl:["...QQ.QQ.Q..","..QQQQQQQQ..","KKKKKKKKKKKK","KPPPPPPPPPPK",".KPPSSPPPPK.","..KPPPPPPK..","...KKKKKK..."],
+ bone:[".KK......KK.","KSSK....KSSK","KSSSKKKKSSSK",".KSSSSSSSSK.","KSSSKKKKSSSK","KSSK....KSSK",".KK......KK."],
+ ball:["..KKKK..",".KRRRRK.","KRSRRRRK","KRRRRRRK","KSSSSSSK","KRRRRRRK",".KRRRRK.","..KKKK.."],
+ clock:["..KKKKK..",".KSSSSSK.","KSSSKSSSK","KSSSKSSSK","KSSSKKKSK","KSSSSSSSK","KSSSSSSSK",".KSSSSSK.","..KKKKK.."],
+ heart:[".RR.RR.","RSRRRRR","RRRRRRR",".RRRRR.","..RRR..","...R..."],
+ paw:["..KK.KK..","..KK.KK..","KK.....KK","KK.KKK.KK","..KKKKK..",".KKKKKKK.",".KKKKKKK.","..KK.KK.."],
+ star:["..Y..","..Y..","YYSYY","..Y..","..Y.."],
+ cloud:["....SSSS......","..SSSSSSSS.SS.",".SSSSSSSSSSSSS","SSSSSSSSSSSSSS",".CCCCCCCCCCCC."],
+};
+document.querySelectorAll("[data-icon]").forEach(e=>{e.innerHTML=svg(ICONS[e.dataset.icon]);});
+document.getElementById("heroDog").innerHTML=DOG;
+document.querySelector("#walker .sprite").innerHTML=DOG;
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* hero: hearts + idle trot */
+const stage=document.querySelector(".stage");
+[[14,22,0],[80,18,.8],[88,48,1.6],[8,58,1.2]].forEach(([l,t,d],i)=>{const h=document.createElement("div");h.className="heart";h.style.cssText=`left:${l}%;top:${t}%;animation-delay:${d}s`;h.innerHTML=svg(i%2?ICONS.star:ICONS.heart);stage.appendChild(h);});
+const hero=document.getElementById("heroDog");
+if(!RM){let hf=0;setInterval(()=>{if(!document.hidden){hf=(hf+1)%4;hero.dataset.f=hf;}},180);}
+
+/* sky parallax */
+const layers=[...document.querySelectorAll("#sky .layer")];
+const spots=[[[4,6,90],[70,14,120],[82,40,100],[2,48,80],[30,62,90],[75,78,110],[8,90,100]],[[85,12,0],[15,35,0],[50,44,0],[90,62,0],[25,82,0],[60,95,0]]];
+layers.forEach((L,i)=>spots[i].forEach(([x,y,w])=>{const d=document.createElement("div");d.style.cssText=`position:absolute;left:${x}%;top:${y}%;width:${w||18}px;opacity:${i?0.8:0.95}`;d.innerHTML=svg(i?ICONS.star:ICONS.cloud);L.appendChild(d);}));
+if(!RM){let tk=false;addEventListener("scroll",()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{const y=scrollY;layers.forEach(L=>L.style.transform=`translate3d(0,${-y*L.dataset.s}px,0)`);tk=false;});},{passive:true});}
+
+/* scroll reveal */
+const rvs=document.querySelectorAll(".rv");
+if(RM||!("IntersectionObserver" in window))rvs.forEach(e=>e.classList.add("vis"));
+else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("vis");io.unobserve(e.target);}}),{threshold:.08});rvs.forEach(e=>io.observe(e));}
+
+/* walking Brian on section change */
+const walker=document.getElementById("walker"),ws=walker.querySelector(".sprite");
+let dir=1,walking=null,wf=0,ftimer=null,lastSec=null;
+function walk(){if(RM)return;if(walking)walking.cancel();
+  const W=innerWidth,from=dir>0?-100:W+20,to=dir>0?W+20:-100;
+  ws.classList.toggle("flip",dir<0);
+  clearInterval(ftimer);ftimer=setInterval(()=>{wf=(wf+1)%4;ws.dataset.f=wf;},140);
+  walking=walker.animate([{transform:`translateX(${from}px)`},{transform:`translateX(${to}px)`}],{duration:Math.max(2200,W*3.2),easing:"linear",fill:"forwards"});
+  walking.onfinish=()=>{clearInterval(ftimer);walking=null;};dir*=-1;}
+const navA=[...document.querySelectorAll("nav.qn a")];
+const secs=["teraz","plan","jedzenie","wyprawka","komendy"].map(id=>document.getElementById(id));
+if("IntersectionObserver" in window){const so=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const id=e.target.id;
+    navA.forEach(a=>a.classList.toggle("on",a.dataset.sec===id));
+    if(lastSec!==null&&lastSec!==id)walk();lastSec=id;});},{rootMargin:"-45% 0px -45% 0px"});secs.forEach(s=>so.observe(s));}
+
+/* ---------- Co teraz? ---------- */
+// t = start in minutes (approximate), k = timeline colour
+const B=[
+ {t:420,txt:"Pobudka: siku i kupka → śniadanie → zabawa",d:"Jak wstał za wcześnie: po toalecie mała drzemka, śniadanie koło 8.",k:"wc"},
+ {t:510,txt:"Drzemka – zazwyczaj śpi do 10/11",d:"Po drzemce 60 min+ od razu siku.",k:"sleep"},
+ {t:630,txt:"Siku (czasem kupka) → zabawa → jedzenie → spanko",d:"Drugi posiłek ok. 11.",k:"food"},
+ {t:720,txt:"Drzemki i krótkie przerwy na siku",d:"Kupka ok. 13 to prawie pewniaczek.",k:"sleep"},
+ {t:960,txt:"Siku (czasem kupka) → trzeci posiłek",d:"Godz. ok. 16–17.",k:"food"},
+ {t:1020,txt:"Spacer 30–60 min",d:"Po 17.",k:"walk"},
+ {t:1080,txt:"Spanko",d:"Kupka ok. 18 – czasem.",k:"sleep"},
+ {t:1200,txt:"Siku, czasem kupka → czwarty posiłek → spanko",d:"Wieczorem „zoomies” – można się trochę pobawić, ale trzeba go „zmusić” do spania.",k:"food"},
+ {t:1320,txt:"Ostatnie siku i najlepiej kupka → noc",d:"Potem spanie nocne.",k:"wc"},
+ {t:1350,txt:"Noc – śpi",d:"Pobudka zwykle ok. 7:00.",k:"sleep"},
+];
+const STEP_OF=[0,1,2,3,4,5,6,7,9,9]; // block -> plan list item
+const MEALS=[480,660,960,1200], POOS=[[420,""],[600,"*"],[780,""],[1080,"*"],[1320,""]];
+const fmt=m=>{m=((m%1440)+1440)%1440;return Math.floor(m/60)+":"+String(m%60).padStart(2,"0");};
+const inMin=d=>{if(d<60)return `za ok. ${d} min`;const h=Math.floor(d/60),r=d%60;return `za ok. ${h} h${r?` ${r} min`:""}`;};
+function nowMin(){try{const p=new Intl.DateTimeFormat("pl-PL",{timeZone:"Europe/Warsaw",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());const g=t=>+p.find(x=>x.type===t).value;return g("hour")*60+g("minute");}catch(e){const d=new Date();return d.getHours()*60+d.getMinutes();}}
+const tl=document.getElementById("tl"),T0=420,T1=1320,pct=m=>Math.min(100,Math.max(0,(m-T0)/(T1-T0)*100));
+B.forEach((b,i)=>{if(b.t>=T1)return;const e=document.createElement("span");e.className="k-"+b.k;const end=Math.min(T1,B[i+1]?B[i+1].t:T1);e.style.left=pct(b.t)+"%";e.style.width=(pct(end)-pct(b.t))+"%";tl.appendChild(e);});
+const me=document.createElement("div");me.className="me";me.innerHTML=svg(ICONS.paw.map(r=>r.replace(/K/g,"R")));tl.appendChild(me);
+const IC={};["bowl","paw","star"].forEach(k=>IC[k]=svg(ICONS[k],"ci"));
+const steps=[...document.querySelectorAll("#steps li")];
+function nextAfter(list,m){for(const x of list){const t=Array.isArray(x)?x[0]:x;if(t>m)return x;}return list[0];}
+function upd(){const m=nowMin();document.getElementById("clk").textContent=fmt(m);
+  let i=B.length-1;for(let j=0;j<B.length;j++)if(m>=B[j].t)i=j; if(m<B[0].t)i=B.length-1;
+  const n=(i+1)%B.length,b=B[i],nb=B[n];const dn=((nb.t-m)+1440)%1440;
+  document.getElementById("nowT").textContent=b.txt;document.getElementById("nowD").textContent=b.d;
+  document.getElementById("nextT").innerHTML=`Następne: <b>ok. ${fmt(nb.t)}</b> – ${nb.txt} <span class="note">(${inMin(dn)})</span>`;
+  const meal=nextAfter(MEALS,m),poo=nextAfter(POOS,m);
+  document.getElementById("chips").innerHTML=`<span class="chip p">${IC.bowl} posiłek: ok. ${fmt(meal)}</span><span class="chip">${IC.paw} kupka: zwykle ok. ${fmt(poo[0])}${poo[1]?" (czasem)":""}</span><span class="chip s">${IC.star} siku po każdej drzemce 60 min+</span>`;
+  me.style.left=pct(m)+"%";me.style.display=(m<T0||m>T1)?"none":"";
+  steps.forEach((s,k)=>s.classList.toggle("cur",k===STEP_OF[i]));}
+upd();setInterval(upd,30000);
 </script>
 </body>
 </html>
